@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase
+    x:Class="Defencev1.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:arcgis="clr-namespace:Esri.ArcGISRuntime.Mapping;assembly=Esri.ArcGISRuntime"
+    xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
+    xmlns:local="clr-namespace:Defencev1.ViewModels"
+    xmlns:views="clr-namespace:Defencev1.Views"
+    x:DataType="local:MainPageViewModel">
+
+    <AbsoluteLayout>
+        <Grid
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            ColumnDefinitions="Auto, Auto, *,Auto, Auto">
+
+            <!--  Left control panel  -->
+            <Grid
+                Grid.Column="0"
+                BackgroundColor="{StaticResource Background}"
+                HorizontalOptions="Start"
+                RowDefinitions="*, Auto">
+                <VerticalStackLayout Grid.Column="4" BackgroundColor="{StaticResource Background}">
+                    <Grid Padding="2">
+                        <Image
+                            HeightRequest="36"
+                            Source="logo.png"
+                            WidthRequest="36" />
+                    </Grid>
+
+                    <ImageButton
+                        x:Name="Workspaces"
+                        Padding="7"
+                        Clicked="OnOptionClicked"
+                        CommandParameter="workspaces"
+                        HeightRequest="38"
+                        Source="workspaces.png"
+                        WidthRequest="38" />
+                    <ImageButton
+                        x:Name="Layers"
+                        Padding="7"
+                        Clicked="OnOptionClicked"
+                        CommandParameter="layers"
+                        HeightRequest="38"
+                        Source="layers.png"
+                        WidthRequest="38" />
+                </VerticalStackLayout>
+                <ImageButton
+                    x:Name="Settings"
+                    Grid.Row="1"
+                    Padding="7"
+                    Clicked="OnOptionClicked"
+                    CommandParameter="settings"
+                    HeightRequest="38"
+                    IsVisible="False"
+                    Source="settings.png"
+                    WidthRequest="38" />
+            </Grid>
+            <views:LayerPaneView
+                Grid.Column="1"
+                BackgroundColor="{StaticResource Background2}"
+                BindingContext="{Binding LayerVM}" />
+            <views:WorkspacePaneView
+                Grid.Column="1"
+                BackgroundColor="{StaticResource Background2}"
+                BindingContext="{Binding WorkspaceVM}" />
+            <views:SettingsPaneView
+                Grid.Column="1"
+                BackgroundColor="{StaticResource Background2}"
+                BindingContext="{Binding SettingsVM}" />
+
+            <!--  Map  -->
+
+            <Grid
+                Grid.Column="2"
+                BackgroundColor="{StaticResource Background2}"
+                RowDefinitions="*, Auto ">
+
+                <esri:MapView
+                    x:Name="EsriMap"
+                    GraphicsOverlays="{Binding GraphicsOverlays}"
+                    Map="{Binding MapController.ActiveMap}" />
+
+                <esri:ScaleLine Margin="20,20,20,30" MapView="{x:Reference EsriMap}" />
+
+                <Border Grid.Row="1" BackgroundColor="{StaticResource Background}">
+                    <views:ProfileGraphView BindingContext="{Binding ProfileGraphVM}" HeightRequest="300" />
+                </Border>
+
+                <Grid
+                    ColumnDefinitions="Auto, Auto"
+                    HorizontalOptions="End"
+                    RowDefinitions="Auto, Auto, *"
+                    VerticalOptions="Start">
+
+                    <esri:Compass
+                        Grid.Column="1"
+                        Margin="10"
+                        AutoHide="False"
+                        GeoView="{x:Reference EsriMap}"
+                        HeightRequest="40"
+                        HorizontalOptions="End"
+                        WidthRequest="40" />
+                    <ImageButton
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="0,5,12,0"
+                        BackgroundColor="Transparent"
+                        Clicked="OnBasemapButtonClicked"
+                        HeightRequest="36"
+                        HorizontalOptions="End"
+                        Source="basemap.png"
+                        VerticalOptions="Start"
+                        WidthRequest="36" />
+
+                    <esri:BasemapGallery
+                        x:Name="BasemapGallery"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        GalleryViewStyle="Grid"
+                        GeoModel="{Binding MapController.ActiveMap}"
+                        IsVisible="False" />
+                </Grid>
+            </Grid>
+
+            <!--  Right control panel  -->
+
+            <views:ProfilePaneView Grid.Column="3" BindingContext="{Binding ProfilePaneVM}" />
+            <views:QuickPredictionView Grid.Column="3" BindingContext="{Binding QuickPredictionVM}" />
+            <VerticalStackLayout
+                Grid.Column="4"
+                BackgroundColor="{StaticResource Background}"
+                HorizontalOptions="Start">
+                <Button
+                    x:Name="UserProfile"
+                    BackgroundColor="{StaticResource ce-blue}"
+                    Clicked="UserProfileButtonClicked"
+                    CornerRadius="0"
+                    FontSize="18"
+                    HeightRequest="38"
+                    MinimumHeightRequest="30"
+                    MinimumWidthRequest="30"
+                    Text="{Binding SelectedUserProfile.UserCredentials.UserName, Converter={StaticResource FirstLetterConverter}}"
+                    TextColor="White"
+                    TextTransform="Uppercase"
+                    WidthRequest="38" />
+
+                <ImageButton
+                    x:Name="QuickPredictTool"
+                    Padding="7"
+                    Clicked="OnToolClicked"
+                    CommandParameter="quick_predict"
+                    HeightRequest="38"
+                    Source="quick_predict.png"
+                    WidthRequest="38" />
+
+                <ImageButton
+                    x:Name="ProfileTool"
+                    Padding="7"
+                    Clicked="OnToolClicked"
+                    CommandParameter="profile"
+                    HeightRequest="38"
+                    Source="profile.png"
+                    WidthRequest="38" />
+
+                <ImageButton
+                    x:Name="IdentifyTool"
+                    Padding="7"
+                    Clicked="OnToolClicked"
+                    CommandParameter="identify"
+                    HeightRequest="38"
+                    Source="identify.png"
+                    WidthRequest="38" />
+            </VerticalStackLayout>
+
+        </Grid>
+
+        <views:UserProfileView
+            x:Name="UserProfileView"
+            Margin="0,0,38,0"
+            AbsoluteLayout.LayoutBounds="1,0,AutoSize,AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            BindingContext="{Binding UserProfileVM}"
+            IsVisible="False" />
+
+    </AbsoluteLayout>
+</views:ContentPageBase>

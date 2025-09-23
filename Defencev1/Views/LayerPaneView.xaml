@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Defencev1.Views.LayerPaneView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:arcgis="clr-namespace:Esri.ArcGISRuntime.Mapping;assembly=Esri.ArcGISRuntime"
+    xmlns:local="clr-namespace:Defencev1.ViewModels"
+    xmlns:map="clr-namespace:Defencev1.Controllers.MapController"
+    x:DataType="local:LayerViewModel"
+    IsVisible="False"
+    WidthRequest="250">
+
+    <Grid RowDefinitions="Auto, *">
+        <Grid Grid.Row="0" Padding="5">
+            <Label
+                Margin="10,0,0,0"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="Layers" />
+            <ImageButton
+                Grid.Column="1"
+                Padding="5"
+                BackgroundColor="{StaticResource Background2}"
+                Clicked="OnHideClicked"
+                HorizontalOptions="End"
+                Rotation="180"
+                Source="arrow.png"
+                WidthRequest="28" />
+        </Grid>
+
+        <CollectionView
+            Grid.Row="1"
+            ItemsSource="{Binding MapController.ActiveMap.OperationalLayers}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="arcgis:Layer">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <CheckBox
+                            Grid.Column="0"
+                            Margin="5,0,0,0"
+                            HeightRequest="30"
+                            HorizontalOptions="Start"
+                            IsChecked="{Binding IsVisible}"
+                            VerticalOptions="Center"
+                            WidthRequest="30" />
+                        <Label
+                            Grid.Column="1"
+                            FontSize="10"
+                            Text="{Binding Name}"
+                            VerticalOptions="Center" />
+                        <ImageButton
+                            Grid.Column="2"
+                            BackgroundColor="Transparent"
+                            Clicked="OnDeleteClicked"
+                            HorizontalOptions="End"
+                            Source="delete.png" />
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentView>

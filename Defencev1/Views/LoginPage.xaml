@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Defencev1.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Defencev1.ViewModels"
+    xmlns:views="clr-namespace:Defencev1.Views"
+    x:DataType="local:LoginViewModel"
+    Background="{StaticResource ce-gradient-bg}">
+
+    <Border
+        Background="{StaticResource Background}"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="10" />
+        </Border.StrokeShape>
+        <Grid MinimumWidthRequest="400" RowDefinitions="Auto, Auto, Auto">
+
+            <Grid ColumnDefinitions="Auto, Auto">
+                <Button
+                    x:Name="OnlinePanelButton"
+                    BackgroundColor="{StaticResource Background2}"
+                    Clicked="OnlineCredentialsClicked"
+                    Command="{Binding SetAppOperatingModeCommand}"
+                    CommandParameter="OnlineServices"
+                    CornerRadius="0"
+                    Text="Online"
+                    TextColor="White" />
+                <Button
+                    x:Name="LocalPanelButton"
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource Background}"
+                    Clicked="LocalCredentialsClicked"
+                    Command="{Binding SetAppOperatingModeCommand}"
+                    CommandParameter="LocalServices"
+                    CornerRadius="0"
+                    Text="Offline"
+                    TextColor="White" />
+            </Grid>
+
+            <VerticalStackLayout
+                x:Name="Credentials"
+                Grid.Row="1"
+                Padding="10"
+                Background="{StaticResource Background2}"
+                IsVisible="True">
+
+                <Label Text="CE Experss URL:" />
+                <Entry BackgroundColor="{StaticResource bg-entry}" Text="{Binding Credentials.CeServerUrl}" />
+
+                <Label Text="Username" />
+                <Entry BackgroundColor="{StaticResource bg-entry}" Text="{Binding Credentials.UserName}" />
+
+                <Label Text="Password" />
+                <Entry
+                    BackgroundColor="{StaticResource bg-entry}"
+                    IsPassword="True"
+                    Text="{Binding Credentials.Password}" />
+
+                <Label
+                    HorizontalOptions="Start"
+                    MaximumWidthRequest="300"
+                    Text="{Binding ResultMsg}" />
+            </VerticalStackLayout>
+
+            <Grid
+                Grid.Row="2"
+                BackgroundColor="{StaticResource Background2}"
+                ColumnDefinitions="Auto, *">
+                <Grid Grid.Column="0" ColumnDefinitions="Auto, *">
+                    <CheckBox
+                        Grid.Column="0"
+                        Margin="16,0,0,0"
+                        IsChecked="{Binding SaveUserCredentials}" />
+                    <Label Grid.Column="1" Text="Remember me" />
+                </Grid>
+                <Grid
+                    Grid.Column="1"
+                    Margin="0,5,15,7"
+                    ColumnDefinitions="*, Auto,Auto"
+                    HorizontalOptions="End">
+                    <Button
+                        Margin="10,0,0,10"
+                        BackgroundColor="{StaticResource Background2}"
+                        BorderColor="{StaticResource ce-blue}"
+                        BorderWidth="2"
+                        Command="{Binding CancelCommand}"
+                        Text="Cancel"
+                        TextColor="White" />
+                    <Button
+                        Grid.Column="1"
+                        Margin="10,0,0,10"
+                        BackgroundColor="{StaticResource ce-blue}"
+                        Command="{Binding LoginCommand}"
+                        Text="OK"
+                        TextColor="White" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+
+</ContentPage>

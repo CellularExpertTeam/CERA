@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid
+    x:Class="Defencev1.Views.Shared.LabeledEntry"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="This"
+    ColumnDefinitions="130,*">
+
+    <Label
+        Grid.Column="0"
+        Text="{Binding LabelText, Source={x:Reference This}}"
+        VerticalOptions="Center" />
+
+    <Entry
+        Grid.Column="1"
+        BackgroundColor="{StaticResource bg-entry}"
+        Text="{Binding EntryText, Source={x:Reference This}}"
+        VerticalOptions="Center" />
+</Grid>

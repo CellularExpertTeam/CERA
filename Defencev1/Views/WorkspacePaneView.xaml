@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Defencev1.Views.WorkspacePaneView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Defencev1.ViewModels"
+    x:DataType="local:WorkspaceViewModel"
+    IsVisible="False"
+    WidthRequest="250">
+    <Grid
+        x:Name="WorkspacePanel"
+        BackgroundColor="{StaticResource Background2}"
+        RowDefinitions="Auto, *">
+
+        <Grid Grid.Row="0" Padding="5">
+            <Label
+                Margin="10,0,0,0"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="Workspaces" />
+            <ImageButton
+                Grid.Column="1"
+                Padding="5"
+                BackgroundColor="{StaticResource Background2}"
+                Clicked="OnHideClicked"
+                HorizontalOptions="End"
+                Rotation="180"
+                Source="arrow.png"
+                WidthRequest="28" />
+        </Grid>
+
+        <VerticalStackLayout Grid.Row="1">
+            <Label
+                Margin="10,5,0,0"
+                Text="Workspace"
+                TextColor="White" />
+
+            <Picker
+                x:Name="WorkspacePicker"
+                Margin="10"
+                BackgroundColor="{StaticResource bg-entry}"
+                ItemsSource="{Binding Workspaces}"
+                SelectedItem="{Binding SelectedWorkspace}" />
+
+            <Label
+                Margin="10,0,0,0"
+                FontSize="14"
+                Text="{Binding WorkspaceResultMsg}"
+                TextColor="{Binding WorkspaceResultMsgColor}" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>

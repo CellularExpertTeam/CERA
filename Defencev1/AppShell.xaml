@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Defencev1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Defencev1.Views"
+    Title="CE CERA (Cellular-Expert Runtime Application)"
+    Shell.BackgroundColor="{StaticResource Background}"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TitleColor="White">
+
+    <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" Route="loginpage" />
+    <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="mainpage" />
+
+</Shell>

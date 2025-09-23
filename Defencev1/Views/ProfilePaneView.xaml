@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Defencev1.Views.ProfilePaneView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Defencev1.ViewModels"
+    xmlns:models="clr-namespace:Defencev1.Models"
+    xmlns:profileModels="clr-namespace:Defencev1.Models.ProfileModels"
+    xmlns:shared="clr-namespace:Defencev1.Views.Shared"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:DataType="local:ProfilePaneViewModel"
+    IsVisible="False"
+    WidthRequest="250">
+
+    <ScrollView Padding="5" BackgroundColor="{StaticResource Background2}">
+        <Grid RowDefinitions="Auto, Auto, Auto">
+            <Grid Grid.Row="0" Margin="0,0,0,10">
+                <ImageButton
+                    Margin="5,0,0,0"
+                    Padding="5"
+                    BackgroundColor="{StaticResource Background2}"
+                    Clicked="OnHideClicked"
+                    HeightRequest="28"
+                    HorizontalOptions="Start"
+                    Source="arrow.png"
+                    WidthRequest="28" />
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="Profile" />
+
+            </Grid>
+
+            <VerticalStackLayout Grid.Row="1" Spacing="6">
+
+                <Border Padding="10" BackgroundColor="{StaticResource Background}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="6" />
+                    </Border.StrokeShape>
+                    <toolkit:Expander>
+                        <toolkit:Expander.Header>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                Text="Transmitter" />
+                        </toolkit:Expander.Header>
+
+                        <VerticalStackLayout>
+                            <shared:LabeledEntry EntryText="{Binding Transmitter.X}" LabelText="X" />
+
+                            <shared:LabeledEntry EntryText="{Binding Transmitter.Y}" LabelText="Y" />
+
+                            <shared:LabeledEntry EntryText="{Binding Transmitter.Height}" LabelText="Height" />
+
+                            <shared:LabeledEntry EntryText="{Binding Transmitter.Azimuth}" LabelText="Azimuth" />
+
+                            <shared:LabeledEntry EntryText="{Binding Transmitter.Frequency}" LabelText="Frequency" />
+
+                            <shared:LabeledEntry EntryText="{Binding Transmitter.Bandwidth}" LabelText="Bandwidth" />
+
+                            <shared:LabeledEntry EntryText="{Binding Transmitter.Power}" LabelText="Power" />
+                        </VerticalStackLayout>
+
+                    </toolkit:Expander>
+                </Border>
+                <Border Padding="10" BackgroundColor="{StaticResource Background}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="6" />
+                    </Border.StrokeShape>
+                    <toolkit:Expander>
+                        <toolkit:Expander.Header>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                Text="Receiver" />
+                        </toolkit:Expander.Header>
+                        <VerticalStackLayout>
+                            <shared:LabeledEntry EntryText="{Binding Receiver.X}" LabelText="X" />
+
+                            <shared:LabeledEntry EntryText="{Binding Receiver.Y}" LabelText="Y" />
+
+                            <shared:LabeledEntry EntryText="{Binding Receiver.Height}" LabelText="Height" />
+
+                            <shared:LabeledEntry EntryText="{Binding Receiver.Azimuth}" LabelText="Azimuth" />
+
+                            <shared:LabeledEntry EntryText="{Binding Receiver.Power}" LabelText="Power" />
+                        </VerticalStackLayout>
+                    </toolkit:Expander>
+                </Border>
+
+                <Label Margin="5,0,0,0" Text="{Binding ProfileCalculationResultMsg}" />
+            </VerticalStackLayout>
+
+            <Border
+                x:Name="ProfileResults"
+                Grid.Row="2"
+                Padding="10"
+                BackgroundColor="{StaticResource Background}"
+                IsVisible="False">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="6" />
+                </Border.StrokeShape>
+
+                <toolkit:Expander IsExpanded="True">
+                    <toolkit:Expander.Header>
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Text="Results" />
+                    </toolkit:Expander.Header>
+
+                    <VerticalStackLayout Spacing="3">
+
+                        <Button
+                            Margin="5"
+                            BackgroundColor="{StaticResource ce-blue}"
+                            Clicked="ShowChart"
+                            Text="Show graph"
+                            TextColor="White" />
+                        <!--  General calculations  -->
+                        <Border Padding="7" BackgroundColor="{StaticResource Background}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="6" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout>
+                                <Label FontAttributes="Bold" Text="General calculations" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.PathType}" LabelText="Path type" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.VisibilityClearance}" LabelText="Visibility clearance" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.Clearance}" LabelText="Fresnel clearance" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.ClearancePercentage}" LabelText="Clearance percentage" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.FirstBObstDistance}" LabelText="Distance to NLOS" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.FirstCObstDistance}" LabelText="Distance to OLOS" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!--  Power budget  -->
+                        <Border Padding="7" BackgroundColor="{StaticResource Background}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="6" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout>
+                                <Label FontAttributes="Bold" Text="Power budget" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.DownlinkFieldStrength}" LabelText="Downlink FS" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.UplinkFieldStrength}" LabelText="Uplink FS" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.DownlinkFwaRsl}" LabelText="FWA downlink RSL" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.UplinkFwaRsl}" LabelText="FWA uplink RSL" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!--  Path loss  -->
+                        <Border Padding="7" BackgroundColor="{StaticResource Background}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="6" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout>
+                                <Label FontAttributes="Bold" Text="Path loss" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.PathLossValues.PathLoss}" LabelText="Total paht loss" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.PathLossValues.BasicLoss}" LabelText="Basic loss" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.PathLossValues.DiffractionLoss}" LabelText="Terrain / building diffraction loss" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.PathLossValues.ClutterLoss}" LabelText="Clutter diffraction loss" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.PathLossValues.PenetrationLoss}" LabelText="Enclosed receiver attenuation" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.PathLossValues.PenObstDiffLoss}" LabelText="Enclosed receiver diffraction loss" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.PathLossValues.ReceiverClutterLoss}" LabelText="Receiver clutter loss" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!--  Angles  -->
+                        <Border Padding="7" BackgroundColor="{StaticResource Background}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="6" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout>
+                                <Label FontAttributes="Bold" Text="Angles" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.TransmitterAzimuth}" LabelText="Transmitter azimuth" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.TransmitterTilt}" LabelText="Transmitter tilt" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.TxToRxAzimuth}" LabelText="TX-RX azimuth" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.TxToRxTilt}" LabelText="TX-RX tilt" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.ReceiverAzimuth}" LabelText="Receiver azimuth" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.ReceiverTilt}" LabelText="Receiver tilt" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.RxToTxAzimuth}" LabelText="RX-TX azimuth" />
+                                <shared:LabeledEntry EntryText="{Binding CurrentProfile.Data.RxToTxTilt}" LabelText="RX-TX tilt" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+                </toolkit:Expander>
+            </Border>
+        </Grid>
+    </ScrollView>
+</ContentView>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Defencev1.Views.QuickPredictionView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Defencev1.ViewModels.Predictions"
+    xmlns:models="clr-namespace:Defencev1.Models"
+    x:DataType="local:QuickPredictionViewModel"
+    IsVisible="False"
+    WidthRequest="250">
+
+    <Grid
+        Padding="5"
+        BackgroundColor="{StaticResource Background2}"
+        ColumnDefinitions="*"
+        RowDefinitions="Auto, *">
+
+        <Grid Grid.Row="0" Margin="0,0,0,10">
+            <ImageButton
+                Margin="5,0,0,0"
+                Padding="5"
+                BackgroundColor="{StaticResource Background2}"
+                Clicked="OnHideClicked"
+                HeightRequest="28"
+                HorizontalOptions="Start"
+                Source="arrow.png"
+                WidthRequest="28" />
+            <Label
+                Grid.Column="1"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="Quick RF prediction" />
+
+        </Grid>
+        <VerticalStackLayout Grid.Row="1" Padding="10">
+
+            <Label Text="Resolution, m" />
+            <Entry BackgroundColor="{StaticResource bg-entry}" Text="{Binding Resolution}" />
+
+            <Label Text="Prediction model:" />
+            <Picker
+                Margin="5"
+                BackgroundColor="{StaticResource bg-entry}"
+                ItemsSource="{Binding PredictionModels}"
+                SelectedItem="{Binding SelectedPredictionModel}"
+                TextColor="White" />
+
+            <Label Text="Height above ground:" />
+            <Entry BackgroundColor="{StaticResource bg-entry}" Text="{Binding Height}" />
+
+            <Label Text="Azimuth:" />
+            <Entry BackgroundColor="{StaticResource bg-entry}" Text="{Binding Azimuth}" />
+
+            <CollectionView ItemsSource="{Binding Cells}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:CE_Cell">
+                        <Grid ColumnDefinitions="*,*,*">
+                            <Label Text="{Binding Id}" />
+                            <Label Grid.Column="1" Text="{Binding Name}" />
+                            <Label Grid.Column="2" Text="{Binding Height}" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="{Binding PredictionResultMsg}" />
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentView>

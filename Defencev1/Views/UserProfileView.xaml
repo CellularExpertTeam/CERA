@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Defencev1.Views.UserProfileView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Defencev1.ViewModels"
+    x:DataType="local:UserProfileViewModel"
+    BackgroundColor="{StaticResource ce-blue}">
+    <VerticalStackLayout
+        Padding="5,10,5,5"
+        MaximumHeightRequest="160"
+        WidthRequest="120">
+        <Label
+            Padding="5"
+            FontSize="16"
+            HorizontalTextAlignment="Start"
+            Text="{Binding CurrentUserProfile.UserCredentials.UserName}" />
+
+        <Label
+            Padding="5"
+            FontSize="12"
+            HorizontalTextAlignment="Start"
+            Text="{Binding CurrentUserProfile.SavedOperatingMode, Converter={StaticResource AppOperatingModeIndicatorConverter}}" />
+        <Button
+            BackgroundColor="Transparent"
+            Command="{Binding SignOutCommand}"
+            HorizontalOptions="Start"
+            Text="Logout"
+            TextColor="Tomato" />
+    </VerticalStackLayout>
+</ContentView>

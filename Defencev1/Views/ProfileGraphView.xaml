@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Defencev1.Views.ProfileGraphView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Defencev1.ViewModels.Predictions"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+    xmlns:shared="clr-namespace:Defencev1.Views.Shared"
+    xmlns:views="clr-namespace:Defencev1.Views"
+    x:DataType="local:ProfileGraphViewModel"
+    IsVisible="False">
+    <Grid>
+        <lvc:CartesianChart
+            x:Name="ProfileChart"
+            AnimationsSpeed="0:0:0"
+            BackgroundColor="{StaticResource Background2}"
+            FindingStrategy="CompareOnlyXTakeClosest"
+            LegendPosition="Hidden"
+            Series="{Binding Series}"
+            TooltipPosition="Right"
+            XAxes="{Binding XAxes}"
+            YAxes="{Binding YAxes}"
+            ZoomMode="X" />
+        <ImageButton
+            Padding="5"
+            BackgroundColor="Transparent"
+            Clicked="OnHideClicked"
+            HeightRequest="28"
+            HorizontalOptions="End"
+            Rotation="90"
+            Source="arrow.png"
+            VerticalOptions="Start"
+            WidthRequest="28" />
+    </Grid>
+</ContentView>
