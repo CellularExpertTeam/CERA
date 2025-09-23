@@ -39,7 +39,7 @@ To run this application, you’ll need access to:
 Clone the repository:
 
 ```bash
-git clone https://github.com/Cellular-Expert/cera.git
+git clone https://github.com/CellularExpertTeam/CERA.git
 ```
 
 ⚠️ For any Workspaces using less common Spatial References, it is important to download the Projection Engine Data from https://developers.arcgis.com/net/downloads To set it up for this project. Download the Projection engine data v200.8.0 zip file, extract it and put the Projection_Engine_Data_200_8_0 folder into Defencev1/Data.
