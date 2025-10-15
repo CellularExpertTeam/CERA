@@ -19,7 +19,7 @@ public partial class LoginViewModel : ViewModelBase
     private Credentials _credentials = new();
 
     [ObservableProperty]
-    private AppOperatingMode _selectedOperatingMode = AppOperatingMode.OnlineServices;
+    private AppOperatingMode _selectedOperatingMode = AppOperatingMode.LocalServices;
 
     [ObservableProperty]
     private string _resultMsg = string.Empty;

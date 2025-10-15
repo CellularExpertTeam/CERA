@@ -20,7 +20,7 @@
             <Grid ColumnDefinitions="Auto, Auto">
                 <Button
                     x:Name="OnlinePanelButton"
-                    BackgroundColor="{StaticResource Background2}"
+                    BackgroundColor="{StaticResource Background}"
                     Clicked="OnlineCredentialsClicked"
                     Command="{Binding SetAppOperatingModeCommand}"
                     CommandParameter="OnlineServices"
@@ -30,7 +30,7 @@
                 <Button
                     x:Name="LocalPanelButton"
                     Grid.Column="1"
-                    BackgroundColor="{StaticResource Background}"
+                    BackgroundColor="{StaticResource Background2}"
                     Clicked="LocalCredentialsClicked"
                     Command="{Binding SetAppOperatingModeCommand}"
                     CommandParameter="LocalServices"
