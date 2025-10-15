@@ -31,7 +31,6 @@ To run this application, you’ll need access to:
 
 🔑 For full functionality, add your ArcGIS API key to MauiProgram.cs
 * If no API key is provided, you can still run the app in Offline mode, which loads the sample San Francisco mobile map package.
-
 ---
 
 ### 🛠️ Installation
@@ -44,6 +43,12 @@ git clone https://github.com/CellularExpertTeam/CERA.git
 
 ⚠️ For any Workspaces using less common Spatial References, it is important to download the Projection Engine Data from https://developers.arcgis.com/net/downloads To set it up for this project. Download the Projection engine data v200.8.0 zip file, extract it and put the Projection_Engine_Data_200_8_0 folder into Defencev1/Data.
 
+---
+
+## 🏎️💨 Run the project
+For minimal setup, you can run the app <b>.exe</b> file and login using Offline mode. You will find the .exe at the project's build directory: <em>CERA\Defencev1\bin\x64\Release\net9.0-windows10.0.19041.0\win10-x64\Defencev1.exe</em>
+
+Otherwise, you can start the project using Visual Studio. Make sure to run without debugging. 
 
 ---
 

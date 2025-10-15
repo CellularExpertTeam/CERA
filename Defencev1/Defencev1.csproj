@@ -48,6 +48,11 @@
 
 	</PropertyGroup>
 
+	<PropertyGroup Condition="$([MSBuild]::IsOSPlatform('windows'))">
+		<WindowsPackageType>None</WindowsPackageType>
+		<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+	</PropertyGroup>
+
 	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
 		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 	</PropertyGroup>
@@ -88,10 +93,14 @@
 		</Content>
 		
 	  <AndroidResource Remove="ViewComponents\**" />
+		
+	  <Compile Remove="DebugLogs\**" />
 	  <Compile Remove="ViewComponents\**" />
+	  <EmbeddedResource Remove="DebugLogs\**" />
 	  <EmbeddedResource Remove="ViewComponents\**" />
 	  <MauiCss Remove="ViewComponents\**" />
 	  <MauiXaml Remove="ViewComponents\**" />
+	  <None Remove="DebugLogs\**" />
 	  <None Remove="ViewComponents\**" />
 	</ItemGroup>
 
@@ -109,10 +118,6 @@
 		<PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0" />
 		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
 	</ItemGroup>
-	<ItemGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0-windows10.0.19041.0'))">
-		<PackageReference Include="WinUIEx" Version="2.7.0" />
-	</ItemGroup>
-	
 
 	<ItemGroup>
 	  <Compile Update="Views\InfoBarView.xaml.cs">
@@ -157,10 +162,6 @@
 	  <MauiXaml Update="Views\WorkspacePaneView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="DebugLogs\" />
 	</ItemGroup>
 	
 </Project>
