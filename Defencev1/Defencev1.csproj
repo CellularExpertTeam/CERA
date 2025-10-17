@@ -50,7 +50,6 @@
 
 	<PropertyGroup Condition="$([MSBuild]::IsOSPlatform('windows'))">
 		<WindowsPackageType>None</WindowsPackageType>
-		<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
@@ -102,6 +101,16 @@
 	  <MauiXaml Remove="ViewComponents\**" />
 	  <None Remove="DebugLogs\**" />
 	  <None Remove="ViewComponents\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="appsettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="appsettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 	<ItemGroup>

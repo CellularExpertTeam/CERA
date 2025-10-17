@@ -15,6 +15,7 @@ using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.Security;
 using Esri.ArcGISRuntime.Toolkit.Maui;
 using LiveChartsCore.SkiaSharpView.Maui;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Events;
 using SkiaSharp.Views.Maui.Controls.Hosting;
@@ -72,8 +73,13 @@ public static class MauiProgram
                 .WriteTo.Debug()
 #endif
                 .CreateLogger();
-            var assembly = Assembly.GetExecutingAssembly();
-            using var stream = assembly.GetManifestResourceStream("Defencev1.appsettings.json");
+
+        var config = new ConfigurationBuilder()
+            .SetBasePath(AppContext.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .Build();
+
+        builder.Configuration.AddConfiguration(config);
 
         builder.Services.AddTransient<LoggingHandler>();
         builder.Logging.AddSerilog(dispose: true);
@@ -81,7 +87,7 @@ public static class MauiProgram
         /// 
         /// Api key required to use Online mode. For more information visit: 
         ///
-        string esriApiKey = "your api key here";
+        string esriApiKey = builder.Configuration["EsriApiKey"];
         ///
         ///
         ///
