@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Defencev1</id>
+    <version>1.0.0</version>
+    <authors>Defencev1</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="2d8bd4c36c8c8739b3bf56de5e1abae7a7503e4d" />
+    <dependencies>
+      <group targetFramework="net9.0-windows10.0.19041">
+        <dependency id="CommunityToolkit.Maui" version="12.0.0" exclude="Build,Analyzers" />
+        <dependency id="CommunityToolkit.Mvvm" version="8.4.0" exclude="Build,Analyzers" />
+        <dependency id="Esri.ArcGISRuntime.Maui" version="200.8.0" exclude="Build,Analyzers" />
+        <dependency id="Esri.ArcGISRuntime.Toolkit.Maui" version="200.8.0" exclude="Build,Analyzers" />
+        <dependency id="LiveChartsCore.SkiaSharpView.Maui" version="2.0.0-rc5.4" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.UserSecrets" version="6.0.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Logging.Debug" version="9.0.8" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Maui.Controls" version="9.0.82" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="Serilog.Extensions.Logging" version="9.0.2" exclude="Build,Analyzers" />
+        <dependency id="Serilog.Sinks.Debug" version="3.0.0" exclude="Build,Analyzers" />
+        <dependency id="Serilog.Sinks.File" version="7.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <contentFiles>
+      <files include="any/net9.0-windows10.0.19041/Data/sanfransisco.mmpk" buildAction="Content" />
+      <files include="any/net9.0-windows10.0.19041/appsettings.json" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\CE\CERA_Public\CERA\Defencev1\bin\x64\Release\net9.0-windows10.0.19041.0\win10-x64\Defencev1.runtimeconfig.json" target="lib\net9.0-windows10.0.19041\Defencev1.runtimeconfig.json" />
+    <file src="C:\CE\CERA_Public\CERA\Defencev1\bin\x64\Release\net9.0-windows10.0.19041.0\win10-x64\Defencev1.dll" target="lib\net9.0-windows10.0.19041\Defencev1.dll" />
+    <file src="C:\CE\CERA_Public\CERA\Defencev1\bin\x64\Release\net9.0-windows10.0.19041.0\win10-x64\resources.pri" target="lib\net9.0-windows10.0.19041\resources.pri" />
+    <file src="C:\CE\CERA_Public\CERA\Defencev1\Data\sanfransisco.mmpk" target="content\Data\sanfransisco.mmpk" />
+    <file src="C:\CE\CERA_Public\CERA\Defencev1\Data\sanfransisco.mmpk" target="contentFiles\any\net9.0-windows10.0.19041\Data\sanfransisco.mmpk" />
+    <file src="C:\CE\CERA_Public\CERA\Defencev1\appsettings.json" target="content\appsettings.json" />
+    <file src="C:\CE\CERA_Public\CERA\Defencev1\appsettings.json" target="contentFiles\any\net9.0-windows10.0.19041\appsettings.json" />
+  </files>
+</package>
