@@ -37,7 +37,7 @@
             <Label Text="Resolution, m" />
             <Entry BackgroundColor="{StaticResource bg-entry}" Text="{Binding Resolution}" />
 
-            <Label Text="Prediction model:" />
+            <Label Text="Prediction model" />
             <Picker
                 Margin="5"
                 BackgroundColor="{StaticResource bg-entry}"
@@ -45,10 +45,10 @@
                 SelectedItem="{Binding SelectedPredictionModel}"
                 TextColor="White" />
 
-            <Label Text="Height above ground:" />
+            <Label Text="Height above ground" />
             <Entry BackgroundColor="{StaticResource bg-entry}" Text="{Binding Height}" />
 
-            <Label Text="Azimuth:" />
+            <Label Text="Azimuth" />
             <Entry BackgroundColor="{StaticResource bg-entry}" Text="{Binding Azimuth}" />
 
             <CollectionView ItemsSource="{Binding Cells}">

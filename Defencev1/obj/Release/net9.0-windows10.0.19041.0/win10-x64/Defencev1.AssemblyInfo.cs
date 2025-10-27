@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Defencev1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+c5953dff38e5c5a92611fb3d326b7e8eab56ab6c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+9af4fdebe51e96a9200febfdaf12048e2a66a120")]
 [assembly: System.Reflection.AssemblyProductAttribute("Defencev1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Defencev1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

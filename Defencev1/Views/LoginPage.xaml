@@ -46,7 +46,7 @@
                 Background="{StaticResource Background2}"
                 IsVisible="True">
 
-                <Label Text="CE Experss URL:" />
+                <Label Text="CE Express URL:" />
                 <Entry BackgroundColor="{StaticResource bg-entry}" Text="{Binding Credentials.CeServerUrl}" />
 
                 <Label Text="Username" />
