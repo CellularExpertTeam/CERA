@@ -1,32 +1,37 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Defencev1.Services.EsriMap;
+using CommunityToolkit.Mvvm.Messaging;
+using Defencev1.Messages;
+using Defencev1.Utils;
+using Defencev1.Utils.Result;
 using Esri.ArcGISRuntime;
+using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.Mapping;
 using Microsoft.Extensions.Logging;
+using Windows.Web.AtomPub;
 using Mapping = Esri.ArcGISRuntime.Mapping;
+using Models = Defencev1.Models;
 
 namespace Defencev1.Controllers.MapController;
 
 public partial class MapController : ObservableObject, IMapController
 {
     private readonly ILogger<MapController> _logger;
-    private readonly IMapService _mapService;
+    public bool MmpkLoaded { get; private set; } = false;
 
     [ObservableProperty]
     private Mapping.Map _activeMap = new();
 
     public MapController(
         ILogger<MapController> logger,
-        IMapService mapService,
         BasemapStyle? initial = null)
     {
-        _mapService = mapService;
         if (initial != null)
             ActiveMap = new Mapping.Map((BasemapStyle)initial);
         else
             ActiveMap = new Mapping.Map();
-
         _logger = logger;
+
+        WeakReferenceMessenger.Default.Register<NewWorkspaceOpenedMsg>(this, (_, __) => MmpkLoaded = false);
     }
     
     public void SetBasemap(BasemapStyle style) => ActiveMap.Basemap = new Basemap(style);
@@ -122,8 +127,6 @@ public partial class MapController : ObservableObject, IMapController
 
     public void Reset(Basemap? basemap = null)
     {
-        ActiveMap.Bookmarks?.Clear();
-        ActiveMap.InitialViewpoint = null;
         List<Layer> layersToRemove = [];
         if (ActiveMap.OperationalLayers.Count > 0)
         {
@@ -141,18 +144,55 @@ public partial class MapController : ObservableObject, IMapController
             ActiveMap.Basemap = basemap;
     }
 
-
-    public async Task LoadMmpkMap(string mmpkFileName)
+    public async Task<Result<string>> LoadMmpkMap(string mmpkPath, Models.Workspace workspace)
     {
-        var result = await _mapService.LoadMmpk(Path.Combine(AppContext.BaseDirectory, "Data", mmpkFileName));
-        if (result.IsSuccess)
+        try
         {
-            ActiveMap = result.Value;
-            await ActiveMap.LoadAsync();
+            var workspaceExtent = workspace.GetExtent();
+            if (workspaceExtent is null)
+                return Result<string>.Fail("Could not determine workspace extent.");
+            
+            var mobileMapPackage = new MobileMapPackage(mmpkPath);
+            await mobileMapPackage.LoadAsync();
+
+            if (mobileMapPackage?.Maps.Count > 0)
+            {
+                Mapping.Map map = mobileMapPackage.Maps[0];
+                var mmpkExtent = await GetMapExtentAsync(map);
+                if (mmpkExtent is null)
+                    return Result<string>.Fail("Could not determine map package extent.");
+                if (!CoordinateUtils.GeometriesIntersect(workspaceExtent, mmpkExtent, out _))
+                    return Result<string>.Fail("Mobile map package area does not intersect Workspace area.");
+
+                ActiveMap = map;
+
+                await ActiveMap.LoadAsync();
+                MmpkLoaded = true;
+                return Result<string>.Ok("Successfully loaded map package.");
+            }
+            else
+            {
+                MmpkLoaded = false;
+                return Result<string>.Fail("No maps found in package.");
+            }
         }
-        else
+        catch (Exception e)
         {
-            _logger.LogError("Error: {result.Error}", result.Error);
+            return Result<string>.Fail(e.Message);
         }
+    }
+
+    public async Task<Envelope?> GetMapExtentAsync(Mapping.Map map)
+    {
+        await map.LoadAsync();
+
+        Envelope? agg = null;
+        foreach (var layer in map.OperationalLayers)
+        {
+            await layer.LoadAsync();
+            var e = layer.FullExtent;
+            if (e != null) agg = agg == null ? e : GeometryEngine.CombineExtents(agg, e);
+        }
+        return agg;
     }
 }

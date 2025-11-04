@@ -34,4 +34,25 @@ public static class CoordinateUtils
 
         return status == PermissionStatus.Granted;
     }
+
+    public static bool GeometriesIntersect(Geometry a, Geometry b, out Geometry bInASR)
+    {
+        bInASR = b;
+
+        if (a is null || b is null) return false;
+        if (a.IsEmpty || b.IsEmpty) return false;
+
+        var aSR = a.SpatialReference;
+        var bSR = b.SpatialReference;
+
+        // If A has no SR, we cannot safely project; compare as-is.
+        if (aSR is null)
+            return GeometryEngine.Intersects(a, b);
+
+        // Project B if SRs differ or B lacks SR.
+        if (bSR is null || !aSR.Equals(bSR))
+            bInASR = GeometryEngine.Project(b, aSR);
+
+        return GeometryEngine.Intersects(a, bInASR);
+    }
 }

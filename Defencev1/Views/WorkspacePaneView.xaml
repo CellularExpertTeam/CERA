@@ -47,6 +47,10 @@
                 FontSize="14"
                 Text="{Binding WorkspaceResultMsg}"
                 TextColor="{Binding WorkspaceResultMsgColor}" />
+
+            <Button Margin="10" Text="Download geodata" TextColor="{StaticResource White}" Command="{Binding DownloadGeodataCommand}" IsVisible="{Binding ActiveWorkspace, Converter={StaticResource ObjectToVisibilityConverter}}"/>
+
         </VerticalStackLayout>
+
     </Grid>
 </ContentView>

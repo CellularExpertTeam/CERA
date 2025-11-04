@@ -53,6 +53,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Defencev1.Resources.Styles
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[C:/CE/CERA_Public/CERA/Defencev1/Views/FilesPaneView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Defencev1.Views.FilesPaneView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\FilesPaneView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\FilesPaneView.xaml
+
 [C:/CE/CERA_Public/CERA/Defencev1/Views/LayerPaneView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Defencev1.Views.LayerPaneView.xaml

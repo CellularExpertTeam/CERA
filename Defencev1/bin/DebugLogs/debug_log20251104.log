@@ -1,0 +1,305 @@
+2025-11-04 08:49:18.262 +02:00 [INF] ➡️ GET https://cecom2.cellular-expert.com/ce_express_react/config.json
+2025-11-04 08:49:18.756 +02:00 [INF] ⬅️ OK https://cecom2.cellular-expert.com/ce_express_react/config.json
+2025-11-04 08:49:18.768 +02:00 [INF] Response Body: {
+  "portalUrl": "https://cecom2.cellular-expert.com/portal",
+  "ceApiUrl": "https://office1.cellular-expert.com:6060/",
+  "inventoryOrigin": "https://cecom2.cellular-expert.com",
+  "googleMapsApiKey": "AIzaSyCypBlb7AhoK1sO9KRL_1go5exAJNbLnMM"
+}
+
+2025-11-04 08:49:18.880 +02:00 [INF] ➡️ POST https://cecom2.cellular-expert.com/portal/sharing/rest/generateToken
+2025-11-04 08:49:18.884 +02:00 [INF] Request Body: request=getToken&username=esilingas&password=Limuzin%2Aasage0020%2A%2A&expiration=300&referer=CE+API&f=json
+2025-11-04 08:49:19.068 +02:00 [INF] ⬅️ OK https://cecom2.cellular-expert.com/portal/sharing/rest/generateToken
+2025-11-04 08:49:19.074 +02:00 [INF] Response Body: {"token":"KMMs8QiLe6KXcxMX1tXTMhppNy-bdGE6TbJ4IVYMXaiQ2NkiZC32nGNHSMmn1_0C-Ydufg0wDa7-WgrKf-HvLuPNe9WrNjpM0ZL88D3Ui_W9vBRiWpa__d28aEg3poGEtNwA1ZfDsVMpXDKx6dRk1w..","expires":1762256959696,"ssl":true}
+
+2025-11-04 08:49:19.097 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/users/login
+2025-11-04 08:49:19.104 +02:00 [INF] Request Body: {"type":"esri","password":"KMMs8QiLe6KXcxMX1tXTMhppNy-bdGE6TbJ4IVYMXaiQ2NkiZC32nGNHSMmn1_0C-Ydufg0wDa7-WgrKf-HvLuPNe9WrNjpM0ZL88D3Ui_W9vBRiWpa__d28aEg3poGEtNwA1ZfDsVMpXDKx6dRk1w..","email":"esilingas"}
+2025-11-04 08:49:19.383 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/users/login
+2025-11-04 08:49:19.386 +02:00 [INF] Response Body: {"data":{"token":"b863578015bd64d1dd803114d9280bfa","user":{"id":58,"email":"esilingas","groupName":"admin","groupId":2},"licensedModules":["core","rcp","rlp","emf","sound","light"],"version":"6.2"},"error":null}
+
+2025-11-04 08:49:19.390 +02:00 [INF] {"data":{"token":"b863578015bd64d1dd803114d9280bfa","user":{"id":58,"email":"esilingas","groupName":"admin","groupId":2},"licensedModules":["core","rcp","rlp","emf","sound","light"],"version":"6.2"},"error":null}
+2025-11-04 08:49:21.902 +02:00 [WRN] Image failed to load: E_NETWORK_ERROR
+2025-11-04 08:49:24.642 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces?token=b863578015bd64d1dd803114d9280bfa
+2025-11-04 08:49:24.841 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces?token=b863578015bd64d1dd803114d9280bfa
+2025-11-04 08:49:24.844 +02:00 [INF] Response Body: {"data":[{"object_id":127,"workspace_name":"Liwal","extent_xmin":69.04331,"extent_ymin":34.398716,"extent_xmax":69.337135,"extent_ymax":34.57219,"epsg":"4326"},{"object_id":2,"workspace_name":"San Francisco","extent_xmin":-122.53053,"extent_ymin":37.69327,"extent_xmax":-122.35225,"extent_ymax":37.81812,"epsg":"4326"},{"object_id":4,"workspace_name":"Germany Dusseldorf Vodafone","extent_xmin":366.59897,"extent_ymin":51.166416,"extent_xmax":366.9227,"extent_ymax":51.277157,"epsg":"4314"},{"object_... (truncated)
+
+2025-11-04 08:49:37.427 +02:00 [WRN] Mismatch between the specified x:DataType (Defencev1.ViewModels.MmpkFile) and the current binding context (Microsoft.Maui.Controls.CollectionView).
+2025-11-04 08:49:44.360 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces?token=b863578015bd64d1dd803114d9280bfa
+2025-11-04 08:49:44.533 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces?token=b863578015bd64d1dd803114d9280bfa
+2025-11-04 08:49:44.552 +02:00 [INF] Response Body: {"data":[{"object_id":127,"workspace_name":"Liwal","extent_xmin":69.04331,"extent_ymin":34.398716,"extent_xmax":69.337135,"extent_ymax":34.57219,"epsg":"4326"},{"object_id":2,"workspace_name":"San Francisco","extent_xmin":-122.53053,"extent_ymin":37.69327,"extent_xmax":-122.35225,"extent_ymax":37.81812,"epsg":"4326"},{"object_id":4,"workspace_name":"Germany Dusseldorf Vodafone","extent_xmin":366.59897,"extent_ymin":51.166416,"extent_xmax":366.9227,"extent_ymax":51.277157,"epsg":"4314"},{"object_... (truncated)
+
+2025-11-04 08:49:51.629 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces/171?token=b863578015bd64d1dd803114d9280bfa
+2025-11-04 08:49:51.793 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces/171?token=b863578015bd64d1dd803114d9280bfa
+2025-11-04 08:49:51.795 +02:00 [INF] Response Body: {"data":{"object_id":171,"workspace_name":"Suwalki corridor demo","extent_xmin":20.83796,"extent_ymin":53.865868,"extent_xmax":26.74452,"extent_ymax":56.43291,"extra_layers":"[{\"url\":\"58fccd905f5d4f28b6c2b5399567d19b\",\"minScale\":0,\"opacity\":0.7,\"visible\":true,\"title\":null},{\"url\":\"https://tile.googleapis.com/v1/3dtiles/root.json\",\"minScale\":0,\"opacity\":0.7,\"visible\":true,\"title\":null},{\"url\":\"https://cecom2.cellular-expert.com/server/rest/services/Hosted/Marijampole_Mi... (truncated)
+
+2025-11-04 08:51:00.714 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/predictionModels?token=b863578015bd64d1dd803114d9280bfa
+2025-11-04 08:51:00.933 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/predictionModels?token=b863578015bd64d1dd803114d9280bfa
+2025-11-04 08:51:01.110 +02:00 [INF] Response Body: {"data":{"1":{"id":1,"name":"ITU-R P452 (6GHz - 50GHz)","type":"rf","configurations":[{"object_id":"5","configuration_name":"Radar 60km 200m","max_radius":60,"receiver_height":50,"effective_earth_radius":8500,"clutter_values":"{\"open\": {\"enclosedKOff\": 17, \"enclosedKD\": 0.25, \"enclosedKFPow\": 1, \"receiverHeight\": null}, \"grassland\": {\"enclosedKOff\": 0, \"enclosedKD\": 0.82, \"enclosedKFPow\": 0.65, \"receiverHeight\": null}, \"sparseForest\": {\"enclosedKOff\": 0, \"enclosedKD\": 0... (truncated)
+
+2025-11-04 08:51:01.690 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/171/calculations/quickRf?token=b863578015bd64d1dd803114d9280bfa
+2025-11-04 08:51:01.700 +02:00 [INF] Request Body: {"calculationName":"Quick prediction","cellSize":10,"cell":{"cell_name":"23.818939, 54.634415","x":23.818938933318677,"y":54.634415148754215,"height":1,"azimuth":0,"tilt":0,"electrical_tilt":0,"antenna_id":468,"frequency":2400,"bandwidth":5,"power":20,"misc_loss":0,"tx_mimo":1,"subcarrier_spacing":15,"prediction_model_id":3,"prediction_model_configuration_id":19}}
+2025-11-04 08:51:01.798 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/171/calculations/quickRf?token=b863578015bd64d1dd803114d9280bfa
+2025-11-04 08:51:02.287 +02:00 [INF] Response Body: {"data":{"object_id":532,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:51:02.271Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:51:02.433Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:51:02.443Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:51:02.543Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:51:02.582Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"23.818939, 54.634415 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+
+2025-11-04 08:51:02.293 +02:00 [INF]  
+ 
+ 
+{"data":{"object_id":532,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:51:02.271Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:51:02.433Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:51:02.443Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:51:02.543Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:51:02.582Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"23.818939, 54.634415 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+2025-11-04 08:51:02.337 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/171/calculations/tasks/532/results/tif/cell_0_fs1.tif?token=b863578015bd64d1dd803114d9280bfa&volatile=True
+2025-11-04 08:51:02.394 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/171/calculations/tasks/532/results/tif/cell_0_fs1.tif?token=b863578015bd64d1dd803114d9280bfa&volatile=True
+2025-11-04 08:51:02.400 +02:00 [INF] Response Body: II*          e       e                                      =       B       C       D    �  E    �"  S       �    �   ��    �   ��     .  ��    n  ��    �  <$        $@      $@                                p�+�	�Aq��F�WA                      ��   ��     �#       )#LKS94 / Lithuania TM|LKS94| -9999 �<[($�A�P�d.�C�Q�N-�E�Q�H=�HdR9$�M'�JeR�d�]/�LfS9��9�M�S�q��;�O(48T֍G�RiT�e6�+�ThU9���V9?... (truncated)
+
+2025-11-04 08:51:02.535 +02:00 [INF] Current map layer count: 3
+2025-11-04 08:52:54.740 +02:00 [INF] ➡️ GET https://cecom2.cellular-expert.com/ce_express_react/config.json
+2025-11-04 08:52:55.170 +02:00 [INF] ⬅️ OK https://cecom2.cellular-expert.com/ce_express_react/config.json
+2025-11-04 08:52:55.175 +02:00 [INF] Response Body: {
+  "portalUrl": "https://cecom2.cellular-expert.com/portal",
+  "ceApiUrl": "https://office1.cellular-expert.com:6060/",
+  "inventoryOrigin": "https://cecom2.cellular-expert.com",
+  "googleMapsApiKey": "AIzaSyCypBlb7AhoK1sO9KRL_1go5exAJNbLnMM"
+}
+
+2025-11-04 08:52:55.226 +02:00 [INF] ➡️ POST https://cecom2.cellular-expert.com/portal/sharing/rest/generateToken
+2025-11-04 08:52:55.228 +02:00 [INF] Request Body: request=getToken&username=esilingas&password=Limuzin%2Aasage0020%2A%2A&expiration=300&referer=CE+API&f=json
+2025-11-04 08:52:55.342 +02:00 [INF] ⬅️ OK https://cecom2.cellular-expert.com/portal/sharing/rest/generateToken
+2025-11-04 08:52:55.346 +02:00 [INF] Response Body: {"token":"KMMs8QiLe6KXcxMX1tXTMhppNy-bdGE6TbJ4IVYMXaiQ2NkiZC32nGNHSMmn1_0C-Ydufg0wDa7-WgrKf-HvLivNPPck-sG4psDp8UQKV0p-X7ZIECjcUSFG_2BbfO2zURflHaZYgcKHMaZdvoxHow..","expires":1762257176027,"ssl":true}
+
+2025-11-04 08:52:55.367 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/users/login
+2025-11-04 08:52:55.373 +02:00 [INF] Request Body: {"type":"esri","password":"KMMs8QiLe6KXcxMX1tXTMhppNy-bdGE6TbJ4IVYMXaiQ2NkiZC32nGNHSMmn1_0C-Ydufg0wDa7-WgrKf-HvLivNPPck-sG4psDp8UQKV0p-X7ZIECjcUSFG_2BbfO2zURflHaZYgcKHMaZdvoxHow..","email":"esilingas"}
+2025-11-04 08:52:55.652 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/users/login
+2025-11-04 08:52:55.655 +02:00 [INF] Response Body: {"data":{"token":"b4a2ce574041b88331145583377dc013","user":{"id":58,"email":"esilingas","groupName":"admin","groupId":2},"licensedModules":["core","rcp","rlp","emf","sound","light"],"version":"6.2"},"error":null}
+
+2025-11-04 08:52:55.658 +02:00 [INF] {"data":{"token":"b4a2ce574041b88331145583377dc013","user":{"id":58,"email":"esilingas","groupName":"admin","groupId":2},"licensedModules":["core","rcp","rlp","emf","sound","light"],"version":"6.2"},"error":null}
+2025-11-04 08:52:57.972 +02:00 [WRN] Image failed to load: E_NETWORK_ERROR
+2025-11-04 08:53:05.618 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:53:05.994 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:53:06.003 +02:00 [INF] Response Body: {"data":[{"object_id":127,"workspace_name":"Liwal","extent_xmin":69.04331,"extent_ymin":34.398716,"extent_xmax":69.337135,"extent_ymax":34.57219,"epsg":"4326"},{"object_id":2,"workspace_name":"San Francisco","extent_xmin":-122.53053,"extent_ymin":37.69327,"extent_xmax":-122.35225,"extent_ymax":37.81812,"epsg":"4326"},{"object_id":4,"workspace_name":"Germany Dusseldorf Vodafone","extent_xmin":366.59897,"extent_ymin":51.166416,"extent_xmax":366.9227,"extent_ymax":51.277157,"epsg":"4314"},{"object_... (truncated)
+
+2025-11-04 08:53:12.419 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:53:12.623 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:53:12.628 +02:00 [INF] Response Body: {"data":[{"object_id":127,"workspace_name":"Liwal","extent_xmin":69.04331,"extent_ymin":34.398716,"extent_xmax":69.337135,"extent_ymax":34.57219,"epsg":"4326"},{"object_id":2,"workspace_name":"San Francisco","extent_xmin":-122.53053,"extent_ymin":37.69327,"extent_xmax":-122.35225,"extent_ymax":37.81812,"epsg":"4326"},{"object_id":4,"workspace_name":"Germany Dusseldorf Vodafone","extent_xmin":366.59897,"extent_ymin":51.166416,"extent_xmax":366.9227,"extent_ymax":51.277157,"epsg":"4314"},{"object_... (truncated)
+
+2025-11-04 08:53:26.225 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces/171?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:53:26.400 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces/171?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:53:26.403 +02:00 [INF] Response Body: {"data":{"object_id":171,"workspace_name":"Suwalki corridor demo","extent_xmin":20.83796,"extent_ymin":53.865868,"extent_xmax":26.74452,"extent_ymax":56.43291,"extra_layers":"[{\"url\":\"58fccd905f5d4f28b6c2b5399567d19b\",\"minScale\":0,\"opacity\":0.7,\"visible\":true,\"title\":null},{\"url\":\"https://tile.googleapis.com/v1/3dtiles/root.json\",\"minScale\":0,\"opacity\":0.7,\"visible\":true,\"title\":null},{\"url\":\"https://cecom2.cellular-expert.com/server/rest/services/Hosted/Marijampole_Mi... (truncated)
+
+2025-11-04 08:53:58.438 +02:00 [WRN] Mismatch between the specified x:DataType (Defencev1.ViewModels.MmpkFile) and the current binding context (Microsoft.Maui.Controls.CollectionView).
+2025-11-04 08:54:14.227 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/predictionModels?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:54:14.513 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/predictionModels?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:54:14.631 +02:00 [INF] Response Body: {"data":{"1":{"id":1,"name":"ITU-R P452 (6GHz - 50GHz)","type":"rf","configurations":[{"object_id":"5","configuration_name":"Radar 60km 200m","max_radius":60,"receiver_height":50,"effective_earth_radius":8500,"clutter_values":"{\"open\": {\"enclosedKOff\": 17, \"enclosedKD\": 0.25, \"enclosedKFPow\": 1, \"receiverHeight\": null}, \"grassland\": {\"enclosedKOff\": 0, \"enclosedKD\": 0.82, \"enclosedKFPow\": 0.65, \"receiverHeight\": null}, \"sparseForest\": {\"enclosedKOff\": 0, \"enclosedKD\": 0... (truncated)
+
+2025-11-04 08:54:15.002 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/171/calculations/quickRf?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:54:15.010 +02:00 [INF] Request Body: {"calculationName":"Quick prediction","cellSize":10,"cell":{"cell_name":"23.517481, 54.576047","x":23.517480679212714,"y":54.57604675240959,"height":1,"azimuth":0,"tilt":0,"electrical_tilt":0,"antenna_id":468,"frequency":2400,"bandwidth":5,"power":20,"misc_loss":0,"tx_mimo":1,"subcarrier_spacing":15,"prediction_model_id":3,"prediction_model_configuration_id":19}}
+2025-11-04 08:54:15.095 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/171/calculations/quickRf?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:54:15.415 +02:00 [INF] Response Body: {"data":{"object_id":533,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:54:15.556Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:54:15.606Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:54:15.619Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:54:15.731Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:54:15.756Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"23.517481, 54.576047 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+
+2025-11-04 08:54:15.420 +02:00 [INF]  
+ 
+ 
+{"data":{"object_id":533,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:54:15.556Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:54:15.606Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:54:15.619Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:54:15.731Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:54:15.756Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"23.517481, 54.576047 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+2025-11-04 08:54:15.452 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/171/calculations/tasks/533/results/tif/cell_0_fs1.tif?token=b4a2ce574041b88331145583377dc013&volatile=True
+2025-11-04 08:54:15.515 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/171/calculations/tasks/533/results/tif/cell_0_fs1.tif?token=b4a2ce574041b88331145583377dc013&volatile=True
+2025-11-04 08:54:15.519 +02:00 [INF] Response Body: II*          e       e                                      =       B       C       D    �  E    �  S       �    �   ��    �   ��     .  ��    n  ��    �  6        $@      $@                                �{�<�A�rpB�WA                      ��   ��     �#       )#LKS94 / Lithuania TM|LKS94| -9999 �<[($�A�P�d.�C�Q�N-�E�Q�H=�HdR9$�M'�JeR�d�]/�LfS9��9�M�S�ry�;�O(48T֍G�RiT�e6�+�ThU5�9V�'... (truncated)
+
+2025-11-04 08:54:15.570 +02:00 [INF] Current map layer count: 3
+2025-11-04 08:54:23.034 +02:00 [WRN] '' cannot be converted to type 'System.Double'
+2025-11-04 08:54:24.424 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/171/calculations/quickRf?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:54:24.427 +02:00 [INF] Request Body: {"calculationName":"Quick prediction","cellSize":10,"cell":{"cell_name":"23.517600, 54.568639","x":23.51759954978408,"y":54.56863861503272,"height":30,"azimuth":0,"tilt":0,"electrical_tilt":0,"antenna_id":468,"frequency":2400,"bandwidth":5,"power":20,"misc_loss":0,"tx_mimo":1,"subcarrier_spacing":15,"prediction_model_id":3,"prediction_model_configuration_id":19}}
+2025-11-04 08:54:24.600 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/171/calculations/quickRf?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:54:24.937 +02:00 [INF] Response Body: {"data":{"object_id":534,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:54:25.076Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:54:25.141Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:54:25.151Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:54:25.251Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:54:25.281Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"23.517600, 54.568639 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+
+2025-11-04 08:54:24.941 +02:00 [INF]  
+ 
+ 
+{"data":{"object_id":534,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:54:25.076Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:54:25.141Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:54:25.151Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:54:25.251Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:54:25.281Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"23.517600, 54.568639 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+2025-11-04 08:54:24.948 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/171/calculations/tasks/534/results/tif/cell_0_fs1.tif?token=b4a2ce574041b88331145583377dc013&volatile=True
+2025-11-04 08:54:25.007 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/171/calculations/tasks/534/results/tif/cell_0_fs1.tif?token=b4a2ce574041b88331145583377dc013&volatile=True
+2025-11-04 08:54:25.010 +02:00 [INF] Response Body: II*          e       e                                      =       B       C       D    �  E    �  S       �    �   ��    �   ��     .  ��    n  ��    �  h        $@      $@                                �:�E�A��,!�WA                      ��   ��     �#       )#LKS94 / Lithuania TM|LKS94| -9999 �<[($�A�P�d.�C�Q�N-�E�Q�H=�HdR9$�M'�JeR�d�]/�LfS9��9�M�S�r��;�O(48T֍G�RiT�e6�+�ThU5c��U�V... (truncated)
+
+2025-11-04 08:54:25.087 +02:00 [INF] Current map layer count: 3
+2025-11-04 08:54:36.452 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/171/calculations/quickRf?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:54:36.456 +02:00 [INF] Request Body: {"calculationName":"Quick prediction","cellSize":10,"cell":{"cell_name":"23.509072, 54.576149","x":23.50907188464883,"y":54.576149324915434,"height":30,"azimuth":0,"tilt":0,"electrical_tilt":0,"antenna_id":468,"frequency":2400,"bandwidth":5,"power":20,"misc_loss":0,"tx_mimo":1,"subcarrier_spacing":15,"prediction_model_id":3,"prediction_model_configuration_id":19}}
+2025-11-04 08:54:36.661 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/171/calculations/quickRf?token=b4a2ce574041b88331145583377dc013
+2025-11-04 08:54:37.020 +02:00 [INF] Response Body: {"data":{"object_id":535,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:54:37.131Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:54:37.215Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:54:37.226Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:54:37.313Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:54:37.342Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"23.509072, 54.576149 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+
+2025-11-04 08:54:37.025 +02:00 [INF]  
+ 
+ 
+{"data":{"object_id":535,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:54:37.131Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:54:37.215Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:54:37.226Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:54:37.313Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:54:37.342Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"23.509072, 54.576149 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+2025-11-04 08:54:37.031 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/171/calculations/tasks/535/results/tif/cell_0_fs1.tif?token=b4a2ce574041b88331145583377dc013&volatile=True
+2025-11-04 08:54:37.123 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/171/calculations/tasks/535/results/tif/cell_0_fs1.tif?token=b4a2ce574041b88331145583377dc013&volatile=True
+2025-11-04 08:54:37.130 +02:00 [INF] Response Body: II*          e       e                                      =       B       C       D    �  E    �  S       �    �   ��    �   ��     .  ��    n  ��    �  4        $@      $@                                �ͦ���A�`��WA                      ��   ��     �#       )#LKS94 / Lithuania TM|LKS94| -9999 �<[($�A�P�d.�C�Q�N-�E�Q�H=�HdR9$�M'�JeR�d�]/�LfS9��9�M�S�r��;�O(48T֍G�RiT�e6�+�ThU5c��U�V_... (truncated)
+
+2025-11-04 08:54:37.207 +02:00 [INF] Current map layer count: 3
+2025-11-04 08:55:50.636 +02:00 [INF] ➡️ GET https://cecom2.cellular-expert.com/ce_express_react/config.json
+2025-11-04 08:55:51.035 +02:00 [INF] ⬅️ OK https://cecom2.cellular-expert.com/ce_express_react/config.json
+2025-11-04 08:55:51.045 +02:00 [INF] Response Body: {
+  "portalUrl": "https://cecom2.cellular-expert.com/portal",
+  "ceApiUrl": "https://office1.cellular-expert.com:6060/",
+  "inventoryOrigin": "https://cecom2.cellular-expert.com",
+  "googleMapsApiKey": "AIzaSyCypBlb7AhoK1sO9KRL_1go5exAJNbLnMM"
+}
+
+2025-11-04 08:55:51.127 +02:00 [INF] ➡️ POST https://cecom2.cellular-expert.com/portal/sharing/rest/generateToken
+2025-11-04 08:55:51.129 +02:00 [INF] Request Body: request=getToken&username=esilingas&password=Limuzin%2Aasage0020%2A%2A&expiration=300&referer=CE+API&f=json
+2025-11-04 08:55:51.365 +02:00 [INF] ⬅️ OK https://cecom2.cellular-expert.com/portal/sharing/rest/generateToken
+2025-11-04 08:55:51.369 +02:00 [INF] Response Body: {"token":"KMMs8QiLe6KXcxMX1tXTMhppNy-bdGE6TbJ4IVYMXaiQ2NkiZC32nGNHSMmn1_0C-Ydufg0wDa7-WgrKf-HvLtll5GAQmCTngEPcjJ_Vt0KqoKi_4eOVSkZ3o_sH4tslze6yAknViQj3t__W0RbAzQ..","expires":1762257352050,"ssl":true}
+
+2025-11-04 08:55:51.393 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/users/login
+2025-11-04 08:55:51.398 +02:00 [INF] Request Body: {"type":"esri","password":"KMMs8QiLe6KXcxMX1tXTMhppNy-bdGE6TbJ4IVYMXaiQ2NkiZC32nGNHSMmn1_0C-Ydufg0wDa7-WgrKf-HvLtll5GAQmCTngEPcjJ_Vt0KqoKi_4eOVSkZ3o_sH4tslze6yAknViQj3t__W0RbAzQ..","email":"esilingas"}
+2025-11-04 08:55:51.656 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/users/login
+2025-11-04 08:55:51.659 +02:00 [INF] Response Body: {"data":{"token":"91884d042c00941be9594a186c4d125c","user":{"id":58,"email":"esilingas","groupName":"admin","groupId":2},"licensedModules":["core","rcp","rlp","emf","sound","light"],"version":"6.2"},"error":null}
+
+2025-11-04 08:55:51.663 +02:00 [INF] {"data":{"token":"91884d042c00941be9594a186c4d125c","user":{"id":58,"email":"esilingas","groupName":"admin","groupId":2},"licensedModules":["core","rcp","rlp","emf","sound","light"],"version":"6.2"},"error":null}
+2025-11-04 08:55:53.908 +02:00 [WRN] Image failed to load: E_NETWORK_ERROR
+2025-11-04 08:55:55.664 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces?token=91884d042c00941be9594a186c4d125c
+2025-11-04 08:55:55.860 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces?token=91884d042c00941be9594a186c4d125c
+2025-11-04 08:55:55.863 +02:00 [INF] Response Body: {"data":[{"object_id":127,"workspace_name":"Liwal","extent_xmin":69.04331,"extent_ymin":34.398716,"extent_xmax":69.337135,"extent_ymax":34.57219,"epsg":"4326"},{"object_id":2,"workspace_name":"San Francisco","extent_xmin":-122.53053,"extent_ymin":37.69327,"extent_xmax":-122.35225,"extent_ymax":37.81812,"epsg":"4326"},{"object_id":4,"workspace_name":"Germany Dusseldorf Vodafone","extent_xmin":366.59897,"extent_ymin":51.166416,"extent_xmax":366.9227,"extent_ymax":51.277157,"epsg":"4314"},{"object_... (truncated)
+
+2025-11-04 08:56:09.057 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces/171?token=91884d042c00941be9594a186c4d125c
+2025-11-04 08:56:09.238 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces/171?token=91884d042c00941be9594a186c4d125c
+2025-11-04 08:56:09.241 +02:00 [INF] Response Body: {"data":{"object_id":171,"workspace_name":"Suwalki corridor demo","extent_xmin":20.83796,"extent_ymin":53.865868,"extent_xmax":26.74452,"extent_ymax":56.43291,"extra_layers":"[{\"url\":\"58fccd905f5d4f28b6c2b5399567d19b\",\"minScale\":0,\"opacity\":0.7,\"visible\":true,\"title\":null},{\"url\":\"https://tile.googleapis.com/v1/3dtiles/root.json\",\"minScale\":0,\"opacity\":0.7,\"visible\":true,\"title\":null},{\"url\":\"https://cecom2.cellular-expert.com/server/rest/services/Hosted/Marijampole_Mi... (truncated)
+
+2025-11-04 08:56:13.270 +02:00 [ERR] Error creating layer from URL 58fccd905f5d4f28b6c2b5399567d19b: You do not have permissions to access this resource or perform this operation.
+2025-11-04 08:56:20.520 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/predictionModels?token=91884d042c00941be9594a186c4d125c
+2025-11-04 08:56:20.724 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/predictionModels?token=91884d042c00941be9594a186c4d125c
+2025-11-04 08:56:20.844 +02:00 [INF] Response Body: {"data":{"1":{"id":1,"name":"ITU-R P452 (6GHz - 50GHz)","type":"rf","configurations":[{"object_id":"5","configuration_name":"Radar 60km 200m","max_radius":60,"receiver_height":50,"effective_earth_radius":8500,"clutter_values":"{\"open\": {\"enclosedKOff\": 17, \"enclosedKD\": 0.25, \"enclosedKFPow\": 1, \"receiverHeight\": null}, \"grassland\": {\"enclosedKOff\": 0, \"enclosedKD\": 0.82, \"enclosedKFPow\": 0.65, \"receiverHeight\": null}, \"sparseForest\": {\"enclosedKOff\": 0, \"enclosedKD\": 0... (truncated)
+
+2025-11-04 08:56:21.663 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/171/calculations/quickRf?token=91884d042c00941be9594a186c4d125c
+2025-11-04 08:56:21.670 +02:00 [INF] Request Body: {"calculationName":"Quick prediction","cellSize":10,"cell":{"cell_name":"23.864404, 55.226889","x":23.86440414041193,"y":55.22688891349225,"height":1,"azimuth":0,"tilt":0,"electrical_tilt":0,"antenna_id":468,"frequency":2400,"bandwidth":5,"power":20,"misc_loss":0,"tx_mimo":1,"subcarrier_spacing":15,"prediction_model_id":3,"prediction_model_configuration_id":19}}
+2025-11-04 08:56:21.792 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/171/calculations/quickRf?token=91884d042c00941be9594a186c4d125c
+2025-11-04 08:56:22.185 +02:00 [INF] Response Body: {"data":{"object_id":536,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:56:22.252Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:56:22.360Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:56:22.369Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:56:22.488Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:56:22.513Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"23.864404, 55.226889 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+
+2025-11-04 08:56:22.188 +02:00 [INF]  
+ 
+ 
+{"data":{"object_id":536,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:56:22.252Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:56:22.360Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:56:22.369Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:56:22.488Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:56:22.513Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"23.864404, 55.226889 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+2025-11-04 08:56:22.204 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/171/calculations/tasks/536/results/tif/cell_0_fs1.tif?token=91884d042c00941be9594a186c4d125c&volatile=True
+2025-11-04 08:56:22.248 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/171/calculations/tasks/536/results/tif/cell_0_fs1.tif?token=91884d042c00941be9594a186c4d125c&volatile=True
+2025-11-04 08:56:22.252 +02:00 [INF] Response Body: II*          e       e                                      =       B       C       D    �  E    r  S       �    �   ��    �   ��     .  ��    n  ��    �          $@      $@                                v�����Ac(�/KZWA                      ��   ��     �#       )#LKS94 / Lithuania TM|LKS94| -9999 �<[($�A�P�d.�C�Q�N-�E�Q�H=�HdR9$�M'�JeR�d�]/�LfS9��9�M�S�r��;�O(48T֍G�RiT�e6�+�ThU5c����... (truncated)
+
+2025-11-04 08:56:22.404 +02:00 [INF] Current map layer count: 0
+2025-11-04 08:58:24.680 +02:00 [INF] ➡️ GET https://cecom2.cellular-expert.com/ce_express_react/config.json
+2025-11-04 08:58:25.078 +02:00 [INF] ⬅️ OK https://cecom2.cellular-expert.com/ce_express_react/config.json
+2025-11-04 08:58:25.082 +02:00 [INF] Response Body: {
+  "portalUrl": "https://cecom2.cellular-expert.com/portal",
+  "ceApiUrl": "https://office1.cellular-expert.com:6060/",
+  "inventoryOrigin": "https://cecom2.cellular-expert.com",
+  "googleMapsApiKey": "AIzaSyCypBlb7AhoK1sO9KRL_1go5exAJNbLnMM"
+}
+
+2025-11-04 08:58:25.117 +02:00 [INF] ➡️ POST https://cecom2.cellular-expert.com/portal/sharing/rest/generateToken
+2025-11-04 08:58:25.118 +02:00 [INF] Request Body: request=getToken&username=esilingas&password=Limuzin%2Aasage0020%2A%2A&expiration=300&referer=CE+API&f=json
+2025-11-04 08:58:25.377 +02:00 [INF] ⬅️ OK https://cecom2.cellular-expert.com/portal/sharing/rest/generateToken
+2025-11-04 08:58:25.381 +02:00 [INF] Response Body: {"token":"KMMs8QiLe6KXcxMX1tXTMhppNy-bdGE6TbJ4IVYMXaiQ2NkiZC32nGNHSMmn1_0C-Ydufg0wDa7-WgrKf-HvLo0DrNuelWBZMXjDj_qGHHcvSpqEVS8K9QQOfOia6FGpXQpL6j5EBW94IBBWXolr1w..","expires":1762257505926,"ssl":true}
+
+2025-11-04 08:58:25.402 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/users/login
+2025-11-04 08:58:25.407 +02:00 [INF] Request Body: {"type":"esri","password":"KMMs8QiLe6KXcxMX1tXTMhppNy-bdGE6TbJ4IVYMXaiQ2NkiZC32nGNHSMmn1_0C-Ydufg0wDa7-WgrKf-HvLo0DrNuelWBZMXjDj_qGHHcvSpqEVS8K9QQOfOia6FGpXQpL6j5EBW94IBBWXolr1w..","email":"esilingas"}
+2025-11-04 08:58:25.943 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/users/login
+2025-11-04 08:58:25.945 +02:00 [INF] Response Body: {"data":{"token":"c18114ed7982c97fb17508a5f94232f0","user":{"id":58,"email":"esilingas","groupName":"admin","groupId":2},"licensedModules":["core","rcp","rlp","emf","sound","light"],"version":"6.2"},"error":null}
+
+2025-11-04 08:58:25.948 +02:00 [INF] {"data":{"token":"c18114ed7982c97fb17508a5f94232f0","user":{"id":58,"email":"esilingas","groupName":"admin","groupId":2},"licensedModules":["core","rcp","rlp","emf","sound","light"],"version":"6.2"},"error":null}
+2025-11-04 08:58:28.172 +02:00 [WRN] Image failed to load: E_NETWORK_ERROR
+2025-11-04 08:58:30.392 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces?token=c18114ed7982c97fb17508a5f94232f0
+2025-11-04 08:58:30.574 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces?token=c18114ed7982c97fb17508a5f94232f0
+2025-11-04 08:58:30.578 +02:00 [INF] Response Body: {"data":[{"object_id":127,"workspace_name":"Liwal","extent_xmin":69.04331,"extent_ymin":34.398716,"extent_xmax":69.337135,"extent_ymax":34.57219,"epsg":"4326"},{"object_id":2,"workspace_name":"San Francisco","extent_xmin":-122.53053,"extent_ymin":37.69327,"extent_xmax":-122.35225,"extent_ymax":37.81812,"epsg":"4326"},{"object_id":4,"workspace_name":"Germany Dusseldorf Vodafone","extent_xmin":366.59897,"extent_ymin":51.166416,"extent_xmax":366.9227,"extent_ymax":51.277157,"epsg":"4314"},{"object_... (truncated)
+
+2025-11-04 08:58:37.302 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces/2?token=c18114ed7982c97fb17508a5f94232f0
+2025-11-04 08:58:37.448 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces/2?token=c18114ed7982c97fb17508a5f94232f0
+2025-11-04 08:58:37.451 +02:00 [INF] Response Body: {"data":{"object_id":2,"workspace_name":"San Francisco","extent_xmin":-122.53053,"extent_ymin":37.69327,"extent_xmax":-122.35225,"extent_ymax":37.81812,"extra_layers":"[{\"url\":\"https://basemaps3d.arcgis.com/arcgis/rest/services/OpenStreetMap3D_Trees_Thematic_v1/SceneServer\",\"minScale\":0,\"opacity\":0.7,\"visible\":true,\"title\":null},{\"url\":\"https://tile.googleapis.com/v1/3dtiles/root.json\",\"minScale\":0,\"opacity\":0.7,\"visible\":true,\"title\":null},{\"url\":\"https://tiles.arcgis... (truncated)
+
+2025-11-04 08:58:48.379 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/predictionModels?token=c18114ed7982c97fb17508a5f94232f0
+2025-11-04 08:58:48.682 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/predictionModels?token=c18114ed7982c97fb17508a5f94232f0
+2025-11-04 08:58:48.814 +02:00 [INF] Response Body: {"data":{"1":{"id":1,"name":"ITU-R P452 (6GHz - 50GHz)","type":"rf","configurations":[{"object_id":"5","configuration_name":"Radar 60km 200m","max_radius":60,"receiver_height":50,"effective_earth_radius":8500,"clutter_values":"{\"open\": {\"enclosedKOff\": 17, \"enclosedKD\": 0.25, \"enclosedKFPow\": 1, \"receiverHeight\": null}, \"grassland\": {\"enclosedKOff\": 0, \"enclosedKD\": 0.82, \"enclosedKFPow\": 0.65, \"receiverHeight\": null}, \"sparseForest\": {\"enclosedKOff\": 0, \"enclosedKD\": 0... (truncated)
+
+2025-11-04 08:58:49.986 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/2/calculations/quickRf?token=c18114ed7982c97fb17508a5f94232f0
+2025-11-04 08:58:49.997 +02:00 [INF] Request Body: {"calculationName":"Quick prediction","cellSize":10,"cell":{"cell_name":"-122.433614, 37.754472","x":-122.43361421009702,"y":37.75447186358886,"height":1,"azimuth":0,"tilt":0,"electrical_tilt":0,"antenna_id":51,"frequency":800,"bandwidth":20,"power":43,"misc_loss":0,"tx_mimo":1,"subcarrier_spacing":15,"prediction_model_id":3,"prediction_model_configuration_id":2}}
+2025-11-04 08:58:50.098 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/2/calculations/quickRf?token=c18114ed7982c97fb17508a5f94232f0
+2025-11-04 08:58:51.690 +02:00 [INF] Response Body: {"data":{"object_id":537,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:58:50.560Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:58:50.599Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:58:50.610Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:58:51.802Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:58:51.835Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"-122.433614, 37.754472 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+
+2025-11-04 08:58:51.694 +02:00 [INF]  
+ 
+ 
+ 
+ 
+ 
+{"data":{"object_id":537,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:58:50.560Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:58:50.599Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:58:50.610Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:58:51.802Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:58:51.835Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"-122.433614, 37.754472 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+2025-11-04 08:58:51.720 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/2/calculations/tasks/537/results/tif/cell_0_fs1.tif?token=c18114ed7982c97fb17508a5f94232f0&volatile=True
+2025-11-04 08:58:51.796 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/2/calculations/tasks/537/results/tif/cell_0_fs1.tif?token=c18114ed7982c97fb17508a5f94232f0&volatile=True
+2025-11-04 08:58:57.672 +02:00 [INF] Response Body: II*          �      �                                     B       C       D �     E �   �   S       �    Z  ��    r  ��     �  ��    �  ��    �                                                                                                                                                                                                                       ... (truncated)
+
+2025-11-04 08:58:57.754 +02:00 [INF] Current map layer count: 1
+2025-11-04 08:58:58.093 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/2/calculations/quickRf?token=c18114ed7982c97fb17508a5f94232f0
+2025-11-04 08:58:58.097 +02:00 [INF] Request Body: {"calculationName":"Quick prediction","cellSize":10,"cell":{"cell_name":"-122.443726, 37.755798","x":-122.44372596922581,"y":37.75579828900222,"height":1,"azimuth":0,"tilt":0,"electrical_tilt":0,"antenna_id":51,"frequency":800,"bandwidth":20,"power":43,"misc_loss":0,"tx_mimo":1,"subcarrier_spacing":15,"prediction_model_id":3,"prediction_model_configuration_id":2}}
+2025-11-04 08:58:58.179 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/2/calculations/quickRf?token=c18114ed7982c97fb17508a5f94232f0
+2025-11-04 08:58:59.882 +02:00 [INF] Response Body: {"data":{"object_id":538,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:58:58.642Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:58:58.764Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:58:58.776Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:58:59.826Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:58:59.859Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"-122.443726, 37.755798 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+
+2025-11-04 08:58:59.885 +02:00 [INF]  
+ 
+ 
+ 
+ 
+ 
+{"data":{"object_id":538,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T06:58:58.642Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T06:58:58.764Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T06:58:58.776Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T06:58:59.826Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T06:58:59.859Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"-122.443726, 37.755798 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+2025-11-04 08:58:59.893 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/2/calculations/tasks/538/results/tif/cell_0_fs1.tif?token=c18114ed7982c97fb17508a5f94232f0&volatile=True
+2025-11-04 08:58:59.970 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/2/calculations/tasks/538/results/tif/cell_0_fs1.tif?token=c18114ed7982c97fb17508a5f94232f0&volatile=True
+2025-11-04 08:59:05.449 +02:00 [INF] Response Body: II*          �      �                                     B       C       D �     E �   �   S       �    Z  ��    r  ��     �  ��    �  ��    �                                                                                                                                                                                                                       ... (truncated)
+
+2025-11-04 08:59:05.533 +02:00 [INF] Current map layer count: 1
+2025-11-04 09:01:28.422 +02:00 [INF] ➡️ GET https://cecom2.cellular-expert.com/ce_express_react/config.json
+2025-11-04 09:01:28.800 +02:00 [INF] ⬅️ OK https://cecom2.cellular-expert.com/ce_express_react/config.json
+2025-11-04 09:01:28.805 +02:00 [INF] Response Body: {
+  "portalUrl": "https://cecom2.cellular-expert.com/portal",
+  "ceApiUrl": "https://office1.cellular-expert.com:6060/",
+  "inventoryOrigin": "https://cecom2.cellular-expert.com",
+  "googleMapsApiKey": "AIzaSyCypBlb7AhoK1sO9KRL_1go5exAJNbLnMM"
+}
+
+2025-11-04 09:01:28.864 +02:00 [INF] ➡️ POST https://cecom2.cellular-expert.com/portal/sharing/rest/generateToken
+2025-11-04 09:01:28.868 +02:00 [INF] Request Body: request=getToken&username=esilingas&password=Limuzin%2Aasage0020%2A%2A&expiration=300&referer=CE+API&f=json
+2025-11-04 09:01:28.986 +02:00 [INF] ⬅️ OK https://cecom2.cellular-expert.com/portal/sharing/rest/generateToken
+2025-11-04 09:01:28.992 +02:00 [INF] Response Body: {"token":"KMMs8QiLe6KXcxMX1tXTMhppNy-bdGE6TbJ4IVYMXaiQ2NkiZC32nGNHSMmn1_0C-Ydufg0wDa7-WgrKf-HvLsuKnYN9sn1VaEnZjCmtAIhFouIO7XVsnpns131m6SEhe5m-QGAc3UawayE36UmgQw..","expires":1762257689670,"ssl":true}
+
+2025-11-04 09:01:29.036 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/users/login
+2025-11-04 09:01:29.047 +02:00 [INF] Request Body: {"type":"esri","password":"KMMs8QiLe6KXcxMX1tXTMhppNy-bdGE6TbJ4IVYMXaiQ2NkiZC32nGNHSMmn1_0C-Ydufg0wDa7-WgrKf-HvLsuKnYN9sn1VaEnZjCmtAIhFouIO7XVsnpns131m6SEhe5m-QGAc3UawayE36UmgQw..","email":"esilingas"}
+2025-11-04 09:01:29.386 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/users/login
+2025-11-04 09:01:29.389 +02:00 [INF] Response Body: {"data":{"token":"e7cc545c7cdb7dccee0563148e2f5131","user":{"id":58,"email":"esilingas","groupName":"admin","groupId":2},"licensedModules":["core","rcp","rlp","emf","sound","light"],"version":"6.2"},"error":null}
+
+2025-11-04 09:01:29.393 +02:00 [INF] {"data":{"token":"e7cc545c7cdb7dccee0563148e2f5131","user":{"id":58,"email":"esilingas","groupName":"admin","groupId":2},"licensedModules":["core","rcp","rlp","emf","sound","light"],"version":"6.2"},"error":null}
+2025-11-04 09:01:31.606 +02:00 [WRN] Image failed to load: E_NETWORK_ERROR
+2025-11-04 09:01:35.141 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces?token=e7cc545c7cdb7dccee0563148e2f5131
+2025-11-04 09:01:35.350 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces?token=e7cc545c7cdb7dccee0563148e2f5131
+2025-11-04 09:01:35.352 +02:00 [INF] Response Body: {"data":[{"object_id":127,"workspace_name":"Liwal","extent_xmin":69.04331,"extent_ymin":34.398716,"extent_xmax":69.337135,"extent_ymax":34.57219,"epsg":"4326"},{"object_id":2,"workspace_name":"San Francisco","extent_xmin":-122.53053,"extent_ymin":37.69327,"extent_xmax":-122.35225,"extent_ymax":37.81812,"epsg":"4326"},{"object_id":4,"workspace_name":"Germany Dusseldorf Vodafone","extent_xmin":366.59897,"extent_ymin":51.166416,"extent_xmax":366.9227,"extent_ymax":51.277157,"epsg":"4314"},{"object_... (truncated)
+
+2025-11-04 09:01:42.633 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/workspaces/2?token=e7cc545c7cdb7dccee0563148e2f5131
+2025-11-04 09:01:42.818 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/workspaces/2?token=e7cc545c7cdb7dccee0563148e2f5131
+2025-11-04 09:01:42.820 +02:00 [INF] Response Body: {"data":{"object_id":2,"workspace_name":"San Francisco","extent_xmin":-122.53053,"extent_ymin":37.69327,"extent_xmax":-122.35225,"extent_ymax":37.81812,"extra_layers":"[{\"url\":\"https://basemaps3d.arcgis.com/arcgis/rest/services/OpenStreetMap3D_Trees_Thematic_v1/SceneServer\",\"minScale\":0,\"opacity\":0.7,\"visible\":true,\"title\":null},{\"url\":\"https://tile.googleapis.com/v1/3dtiles/root.json\",\"minScale\":0,\"opacity\":0.7,\"visible\":true,\"title\":null},{\"url\":\"https://tiles.arcgis... (truncated)
+
+2025-11-04 09:01:48.389 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/predictionModels?token=e7cc545c7cdb7dccee0563148e2f5131
+2025-11-04 09:01:48.593 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/predictionModels?token=e7cc545c7cdb7dccee0563148e2f5131
+2025-11-04 09:01:48.746 +02:00 [INF] Response Body: {"data":{"1":{"id":1,"name":"ITU-R P452 (6GHz - 50GHz)","type":"rf","configurations":[{"object_id":"5","configuration_name":"Radar 60km 200m","max_radius":60,"receiver_height":50,"effective_earth_radius":8500,"clutter_values":"{\"open\": {\"enclosedKOff\": 17, \"enclosedKD\": 0.25, \"enclosedKFPow\": 1, \"receiverHeight\": null}, \"grassland\": {\"enclosedKOff\": 0, \"enclosedKD\": 0.82, \"enclosedKFPow\": 0.65, \"receiverHeight\": null}, \"sparseForest\": {\"enclosedKOff\": 0, \"enclosedKD\": 0... (truncated)
+
+2025-11-04 09:01:50.073 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/2/calculations/quickRf?token=e7cc545c7cdb7dccee0563148e2f5131
+2025-11-04 09:01:50.079 +02:00 [INF] Request Body: {"calculationName":"Quick prediction","cellSize":10,"cell":{"cell_name":"-122.453500, 37.755383","x":-122.453499588196,"y":37.755383180354755,"height":1,"azimuth":0,"tilt":0,"electrical_tilt":0,"antenna_id":51,"frequency":800,"bandwidth":20,"power":43,"misc_loss":0,"tx_mimo":1,"subcarrier_spacing":15,"prediction_model_id":1,"prediction_model_configuration_id":4}}
+2025-11-04 09:01:50.174 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/2/calculations/quickRf?token=e7cc545c7cdb7dccee0563148e2f5131
+2025-11-04 09:01:50.890 +02:00 [INF] Response Body: {"data":{"object_id":540,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T07:01:50.639Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T07:01:50.725Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T07:01:50.736Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T07:01:50.989Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T07:01:51.014Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"-122.453500, 37.755383 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+
+2025-11-04 09:01:50.892 +02:00 [INF]  
+ 
+ 
+ 
+{"data":{"object_id":540,"calculation_status_id":2,"task_log":"{\"t\":\"2025-11-04T07:01:50.639Z\",\"m\":\"Task is waiting in queue\"},{\"t\":\"2025-11-04T07:01:50.725Z\",\"m\":\"Verifying params\"},{\"t\":\"2025-11-04T07:01:50.736Z\",\"m\":\"Verification complete\"},{\"t\":\"2025-11-04T07:01:50.989Z\",\"m\":\"Building overviews\"},{\"t\":\"2025-11-04T07:01:51.014Z\",\"m\":\"Task completed\"}","results":{},"result_list":[{"open":true,"export":true,"fileName":"cell_0_fs1.tif","alias":"-122.453500, 37.755383 QP FS, dBm","technology":"quickRfPrediction","type":"fs"}]}
+2025-11-04 09:01:50.908 +02:00 [INF] ➡️ GET https://office1.cellular-expert.com:6060/2/calculations/tasks/540/results/tif/cell_0_fs1.tif?token=e7cc545c7cdb7dccee0563148e2f5131&volatile=True
+2025-11-04 09:01:50.957 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/2/calculations/tasks/540/results/tif/cell_0_fs1.tif?token=e7cc545c7cdb7dccee0563148e2f5131&volatile=True
+2025-11-04 09:01:51.741 +02:00 [INF] Response Body: II*          �      �                                     B       C       D      E    �   S       �    Z  ��    r  ��     �  ��    �  ��    �                                                          
+                 $@      $@                                ��H� A�s���OA                      ��   ��     �#    i   )#NAD83 / UTM zone 1... (truncated)
+
+2025-11-04 09:01:51.809 +02:00 [INF] Current map layer count: 1
+2025-11-04 09:02:03.045 +02:00 [INF] ➡️ POST https://office1.cellular-expert.com:6060/2/calculations/profile?token=e7cc545c7cdb7dccee0563148e2f5131
+2025-11-04 09:02:03.047 +02:00 [INF] Request Body: {"transmitter":{"x":-122.46406367094305,"y":37.736617099734794,"height":30,"azimuth":0,"tilt":0,"electrical_tilt":0,"antenna_id":"51","frequency":800,"bandwidth":20,"power":43,"misc_loss":0,"tx_mimo":1,"rx_mimo":1,"subcarrier_spacing":"15","prediction_model_id":3,"prediction_model_configuration_id":"2"},"receiver":{"x":-122.44480582394944,"y":37.743412797974415,"height":30,"azimuth":0,"tilt":0,"antenna_id":"16","power":20,"misc_loss":0}}
+2025-11-04 09:02:03.443 +02:00 [INF] ⬅️ OK https://office1.cellular-expert.com:6060/2/calculations/profile?token=e7cc545c7cdb7dccee0563148e2f5131
+2025-11-04 09:02:03.924 +02:00 [INF] Response Body:  
+ 
+ 
+{"data":{"arrays":{"distance":[0,1.1,2.19,3.29,4.39,5.49,6.58,7.68,8.78,9.87,10.97,12.07,13.17,14.26,15.36,16.46,17.55,18.65,19.75,20.85,21.94,23.04,24.14,25.23,26.33,27.43,28.52,29.62,30.72,31.82,32.91,34.01,35.11,36.2,37.3,38.4,39.5,40.59,41.69,42.79,43.88,44.98,46.08,47.18,48.27,49.37,50.47,51.56,52.66,53.76,54.86,55.95,57.05,58.15,59.24,60.34,61.44,62.54,63.63,64.73,65.83,66.92,68.02,69.12,70.21,71.31,72.41,73.51,74.6,75.7,76.8,77.89,78.99,80.09,81.19,82.28,83.38,84.48,85.57,86.67,87.7... (truncated)
+

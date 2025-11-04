@@ -15,7 +15,7 @@ public class CE_Cell
     public double Y { get; set; }
 
     [JsonPropertyName("height")]
-    public double Height { get; set; } = 1;
+    public double Height { get; set; } = 30;
 
     [JsonPropertyName("azimuth")]
     public double Azimuth { get; set; } = 0;
@@ -27,16 +27,16 @@ public class CE_Cell
     public double ElectricalTilt { get; set; } = 0;
 
     [JsonPropertyName("antenna_id")]
-    public long AntennaId { get; set; } = 468;
+    public long AntennaId { get; set; } = 51;
 
     [JsonPropertyName("frequency")]
-    public double Frequency { get; set; } = 2400;
+    public double Frequency { get; set; } = 800;
 
     [JsonPropertyName("bandwidth")]
-    public double Bandwidth { get; set; } = 5;
+    public double Bandwidth { get; set; } = 20;
 
     [JsonPropertyName("power")]
-    public double Power { get; set; } = 20;
+    public double Power { get; set; } = 43;
 
     [JsonPropertyName("misc_loss")]
     public double MiscLoss { get; set; } = 0;
@@ -48,9 +48,9 @@ public class CE_Cell
     public long SubcarrierSpacing { get; set; } = 15;
 
     [JsonPropertyName("prediction_model_id")]
-    public long PredictionModelId { get; set; } = 3;
+    public long PredictionModelId { get; set; } = 1;
 
     [JsonPropertyName("prediction_model_configuration_id")]
-    public long PredictionModelConfigurationId { get; set; } = 19;
+    public long PredictionModelConfigurationId { get; set; } = 4;
 
 }

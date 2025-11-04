@@ -8,7 +8,7 @@ public class FirstLetterConverter : IValueConverter
     {
         if (value is string username && !string.IsNullOrEmpty(username))
         {
-            return username.Substring(0, 1).ToUpperInvariant();
+            return username[..1].ToUpperInvariant();
         }
         return string.Empty; // Return empty string for null or empty usernames
     }

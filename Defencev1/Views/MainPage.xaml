@@ -45,6 +45,14 @@
                         HeightRequest="38"
                         Source="layers.png"
                         WidthRequest="38" />
+                    <ImageButton
+                        x:Name="Files"
+                        Padding="7"
+                        Clicked="OnOptionClicked"
+                        CommandParameter="files"
+                        HeightRequest="38"
+                        Source="folder.png"
+                        WidthRequest="38" />
                 </VerticalStackLayout>
                 <ImageButton
                     x:Name="Settings"
@@ -69,6 +77,10 @@
                 Grid.Column="1"
                 BackgroundColor="{StaticResource Background2}"
                 BindingContext="{Binding SettingsVM}" />
+            <views:FilesPaneView
+                Grid.Column="1"
+                BackgroundColor="{StaticResource Background2}"
+                BindingContext="{Binding FilesVM}" />
 
             <!--  Map  -->
 
@@ -138,6 +150,7 @@
                     Clicked="UserProfileButtonClicked"
                     CornerRadius="0"
                     FontSize="18"
+                    Padding="0"
                     HeightRequest="38"
                     MinimumHeightRequest="30"
                     MinimumWidthRequest="30"

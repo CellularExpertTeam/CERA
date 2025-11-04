@@ -7,6 +7,7 @@ using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.Symbology;
 using Esri.ArcGISRuntime.UI;
 using Defencev1.Models;
+using System.Diagnostics;
 
 namespace Defencev1.Views;
 
@@ -20,11 +21,17 @@ public partial class MainPage
     private GraphicsOverlay _workspaceBoundOverlay = new();
     public MapPoint[] linePoints = new MapPoint[2];
 
+    SimpleLineSymbol markerEdge = new()
+    {
+        Style = SimpleLineSymbolStyle.Solid,
+        Color = System.Drawing.Color.Blue,
+        Width = 5
+    };
     SimpleMarkerSymbol pointSymbol = new()
     {
         Style = SimpleMarkerSymbolStyle.Circle,
-        Color = System.Drawing.Color.Red,
-        Size = 10.0
+        Color = System.Drawing.Color.Transparent,
+        Size = 10.0,
     };
 
     SimpleMarkerSymbol transmitterSymbol = new()
@@ -52,6 +59,7 @@ public partial class MainPage
 
         EsriMap.GeoViewTapped += OnMapViewTapped;
         EsriMap.GeometryEditor = new();
+        pointSymbol.Outline = markerEdge;
         WeakReferenceMessenger.Default.Register<ControlPanelToolSelectedMsg>(this, (_, __) => ToolsToDefaultBackground());
         WeakReferenceMessenger.Default.Register<NewWorkspaceOpenedMsg>(this, async (r, m) => await ZoomToWorkspace(m.Value));
         WeakReferenceMessenger.Default.Register<UserProfileChangedMsg>(this, (_, __) => ClearGraphicOverlays());
@@ -193,7 +201,15 @@ public partial class MainPage
 
     private async Task ZoomToWorkspace(Workspace workspace)
     {
+        if (workspace is null)
+            return;
+
         _workspaceBoundOverlay.Graphics.Clear();
+        if (!SpatialReference.IsValidWkid(workspace.Epsg))
+        {
+            Debug.WriteLine("Invalid Workspace Wkid.");
+        }
+
         SpatialReference sp = SpatialReference.Create(workspace.Epsg);
         Envelope extent = new(
             workspace.ExtentXmin,

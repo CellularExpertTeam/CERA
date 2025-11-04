@@ -44,13 +44,13 @@ public class CellParameters
     public string AntennaId { get; set; } = "51";
 
     [JsonPropertyName("frequency")]
-    public int Frequency { get; set; } = 2400;
+    public int Frequency { get; set; } = 800;
 
     [JsonPropertyName("bandwidth")]
     public int Bandwidth { get; set; } = 20;
 
     [JsonPropertyName("power")]
-    public int Power { get; set; } = 20;
+    public int Power { get; set; } = 43;
 
     [JsonPropertyName("misc_loss")]
     public int MiscLoss { get; set; } = 0;
@@ -65,7 +65,7 @@ public class CellParameters
     public int PredictionModelId { get; set; } = 3;
 
     [JsonPropertyName("prediction_model_configuration_id")]
-    public string PredictionModelConfigurationId { get; set; } = "9";
+    public string PredictionModelConfigurationId { get; set; } = "2";
 
     [JsonPropertyName("cell_name")]
     public string CellName { get => $"{X:F6}, {Y:F6}"; }

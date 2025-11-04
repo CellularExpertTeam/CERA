@@ -70,6 +70,7 @@ public partial class QuickPredictionViewModel : ViewModelBase
     [RelayCommand]
     public async Task RunPrediction()
     {
+        PredictionResultMsg = string.Empty;
         var workspaceId = _workspaceService?.ActiveWorkspace?.Id;
         if (workspaceId is null)
         {

@@ -24,6 +24,7 @@ public partial class MainPageViewModel : ViewModelBase
     public LayerViewModel LayerVM { get; }
     public SettingsViewModel SettingsVM { get; }
     public UserProfileViewModel UserProfileVM { get; }
+    public FilesPaneViewModel FilesVM { get; }
 
     [ObservableProperty]
     private MapPoint _pointCoordinates;
@@ -51,6 +52,7 @@ public partial class MainPageViewModel : ViewModelBase
         SettingsViewModel settingsVM,
         WorkspaceViewModel workspaceVM,
         UserProfileViewModel userProfileViewModel,
+        FilesPaneViewModel filesVM,
         LayerViewModel layerVM)
     {
         _logger = logger;
@@ -69,6 +71,7 @@ public partial class MainPageViewModel : ViewModelBase
         ProfileGraphVM = profileGraphVM;
         SettingsVM = settingsVM;
         WorkspaceVM = workspaceVM;
+        FilesVM = filesVM;
         LayerVM = layerVM;
     }
 
@@ -77,15 +80,15 @@ public partial class MainPageViewModel : ViewModelBase
         SelectedUserProfile = user;
         WorkspaceVM.Reset();
 
-        if (SelectedUserProfile.SavedOperatingMode is AppOperatingMode.LocalServices)
-        {
-            MapController.Reset();
-            await MapController.LoadMmpkMap("sanfransisco.mmpk");
-        }
-        else
+        try
         {
             var basemap = new Basemap(BasemapStyle.ArcGISImageryStandard);
-            MapController.Reset(basemap);
+            if (basemap is not null)
+                MapController.Reset(basemap);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError("{e.Message}", e.Message);
         }
     }
 }

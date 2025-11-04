@@ -11,5 +11,5 @@ public interface IWorkspaceService
     Task<Result<List<Workspace>>> GetWorkspaces();
     Task<Layer?> CreateLayerFromUrl(string url);
 
-    Task<Result<List<string>>> GetGeodatasets();
+    IAsyncEnumerable<string> GetGeodatasets();
 }

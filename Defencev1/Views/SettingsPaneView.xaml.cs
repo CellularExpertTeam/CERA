@@ -13,15 +13,11 @@ public partial class SettingsPaneView : ContentView
 
 	public void ToggleVisibility(string optionName)
 	{
-		if (optionName == "settings")
-		{
-			IsVisible = true;
-		}
-		else
-		{
-			IsVisible = false;
-		}
-	}
+        if (IsVisible)
+            IsVisible = !IsVisible;
+        else
+            IsVisible = optionName == "settings";
+    }
 	private void OnHideClicked(object sender, EventArgs e)
 	{
 		WeakReferenceMessenger.Default.Send(new Messages.ControlPanelOptionSelectedMsg("hide"));

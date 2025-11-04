@@ -1,4 +1,6 @@
-﻿using Esri.ArcGISRuntime.Mapping;
+﻿using Defencev1.Models;
+using Defencev1.Utils.Result;
+using Esri.ArcGISRuntime.Mapping;
 using Mapping = Esri.ArcGISRuntime.Mapping;
 
 namespace Defencev1.Controllers.MapController;
@@ -6,7 +8,7 @@ namespace Defencev1.Controllers.MapController;
 public interface IMapController
 {
     Mapping.Map ActiveMap { get; }
-
+    bool MmpkLoaded { get; }
     void SetBasemap(Mapping.BasemapStyle style);
     void SetBasemap(Mapping.Basemap basemap);
     void AddLayer(Mapping.Layer layer, int? insertAt = null, bool cloneIfOwned = true);
@@ -16,5 +18,5 @@ public interface IMapController
     Mapping.Layer? GetLayer(string id);
     void MoveLayer(string id, int newIndex);
     void Reset(Basemap? basemap = null);
-    Task LoadMmpkMap(string mmpkFileName);
+    Task<Result<string>> LoadMmpkMap(string mmpkPath, Workspace workspace);
 }

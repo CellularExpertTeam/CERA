@@ -2,7 +2,6 @@ using CommunityToolkit.Maui;
 using Defencev1.Controllers.MapController;
 using Defencev1.Services.Auth;
 using Defencev1.Services.Cells;
-using Defencev1.Services.EsriMap;
 using Defencev1.Services.PredictionModels;
 using Defencev1.Services.Predictions;
 using Defencev1.Services.Profile;
@@ -20,7 +19,6 @@ using Serilog;
 using Serilog.Events;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using System.Diagnostics;
-using System.Reflection;
 
 namespace Defencev1;
 
@@ -124,7 +122,6 @@ public static class MauiProgram
 
     public static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
     {
-        builder.Services.AddSingleton<IMapService, MapService>();
         builder.Services.AddSingleton<ICellService, CellService>();
         builder.Services.AddSingleton<IAuthService, AuthService>();
         builder.Services.AddSingleton<IWorkspaceService, WorkspaceService>();
@@ -148,6 +145,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<LayerPaneView>();
         builder.Services.AddSingleton<LoginPage>();
         builder.Services.AddSingleton<UserProfileView>();
+        builder.Services.AddSingleton<FilesPaneView>();
 
         builder.Services.AddTransient<QuickPredictionView>();
         builder.Services.AddTransient<ProfileGraphView>();
@@ -163,7 +161,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<LayerViewModel>();
         builder.Services.AddSingleton<LoginViewModel>();
         builder.Services.AddSingleton<UserProfileViewModel>();
-
+        builder.Services.AddSingleton<FilesPaneViewModel>();
 
         builder.Services.AddTransient<ProfileGraphViewModel>();
         builder.Services.AddTransient<QuickPredictionViewModel>();

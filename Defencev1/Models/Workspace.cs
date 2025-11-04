@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Esri.ArcGISRuntime.Geometry;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
@@ -71,6 +72,12 @@ public class Workspace
         {
             Debug.Write(e);
         }
+    }
+
+    public Geometry GetExtent()
+    {
+        var sp = SpatialReference.Create(Epsg);
+        return new Envelope(ExtentXmin, ExtentYmin, ExtentXmax, ExtentYmax, sp);
     }
 }
 

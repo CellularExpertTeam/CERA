@@ -2,16 +2,16 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Defencev1.Controllers.MapController;
-using Defencev1.Enums;
 using Defencev1.Messages;
 using Defencev1.Models;
 using Defencev1.Services.Workspaces;
 using Defencev1.ViewModels.Base;
 using Esri.ArcGISRuntime.Mapping;
 using Esri.ArcGISRuntime.Rasters;
-using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Text;
+using System.Text.Json;
 
 namespace Defencev1.ViewModels;
 
@@ -48,6 +48,8 @@ public partial class WorkspaceViewModel(IWorkspaceService workspaceService, IMap
     [RelayCommand]
     private async Task GetActiveWorkspace()
     {
+        WorkspaceResultMsg = string.Empty;
+        WorkspaceResultMsgColor = Colors.White;
         try
         {
             if (SelectedWorkspace?.Id is null)
@@ -69,6 +71,7 @@ public partial class WorkspaceViewModel(IWorkspaceService workspaceService, IMap
 
             ActiveWorkspace = _workspaceService.ActiveWorkspace;
             await AddNewWorkspaceLayers();
+
             WeakReferenceMessenger.Default.Send(new NewWorkspaceOpenedMsg(ActiveWorkspace));
         }
         catch (Exception e)
@@ -97,14 +100,13 @@ public partial class WorkspaceViewModel(IWorkspaceService workspaceService, IMap
     public async Task AddNewWorkspaceLayers()
     {
         MapController.Reset();
-
+        
         try
         {
-            List<string> layerUrls = JsonConvert.DeserializeObject<List<string>>(_workspaceService.ActiveWorkspace.ExtraLayers);
+            List<ExtraLayer> layerUrls = JsonSerializer.Deserialize<List<ExtraLayer>>(_workspaceService.ActiveWorkspace.ExtraLayers);
             List<Layer> featureLayers = await GetFeatureLayersFromUrls(layerUrls);
-            List<Layer> geodatasets = await GetCurrentWorkspaceGeodatasets();
 
-            MapController.ActiveMap.OperationalLayers.AddRange([.. featureLayers, .. geodatasets]);
+            MapController.ActiveMap.OperationalLayers.AddRange([.. featureLayers ]);
         }
         catch (Exception e)
         {
@@ -114,49 +116,92 @@ public partial class WorkspaceViewModel(IWorkspaceService workspaceService, IMap
 
     public async Task<List<Layer>> GetCurrentWorkspaceGeodatasets()
     {
+        StringBuilder sb = new("Retrieving geodatasets...\n");
         List<Layer> layers = [];
-        var geodatasetsResult = await _workspaceService.GetGeodatasets();
-        if (geodatasetsResult.IsSuccess)
+        WorkspaceResultMsgColor = Colors.White;
+        WorkspaceResultMsg = sb.ToString();
+        try
         {
-            foreach (var layerPath in geodatasetsResult.Value)
+            await foreach (var geodataPath in _workspaceService.GetGeodatasets())
             {
+                if (string.IsNullOrEmpty(geodataPath) || !Path.Exists(geodataPath)) continue;
+
                 double[] minMax = [0, 300];
                 MinMaxStretchParameters minMaxParams = new([minMax.Min()], [minMax.Max()]);
                 ColorRamp ramp = ColorRamp.Create(PresetColorRampType.Elevation);
                 StretchRenderer renderer = new(minMaxParams, null, true, ramp);
 
-                var raster = new Raster(layerPath);
+                var raster = new Raster(geodataPath);
                 var rasterLayer = new RasterLayer(raster);
                 await rasterLayer.LoadAsync();
-                rasterLayer.IsVisible = false;
+                rasterLayer.IsVisible = true;
                 rasterLayer.Renderer = renderer;
                 rasterLayer.Opacity = 0.5;
 
+                sb.AppendLine($"Added layer: {rasterLayer.Name}");
                 layers.Add(rasterLayer);
+                WorkspaceResultMsg = sb.ToString();
+            }
+        }
+        catch (Exception e)
+        {
+            sb.Append(e.ToString());
+            Debug.WriteLine(e);
+        }
+
+        WorkspaceResultMsg = sb.ToString();
+        return layers;
+
+    }
+
+    public async Task<List<Layer>> GetFeatureLayersFromUrls(List<ExtraLayer> extraLayers)
+    {
+        List<Layer> layers = [];
+        int i = 1;
+        foreach (string url in extraLayers.Select(e => e.url))
+        {
+            try
+            {
+                var layer = await _workspaceService.CreateLayerFromUrl(url);
+                if (layer is null) continue;
+                await layer.LoadAsync();
+
+                if (string.IsNullOrEmpty(layer.Name))
+                    layer.Name = $"layer_{i++}";
+
+                layers.Add(layer);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Error loading workspace extra layer");
+                continue;
             }
         }
         return layers;
     }
 
-    public async Task<List<Layer>> GetFeatureLayersFromUrls(List<string> urls)
+    [RelayCommand]
+    private async Task DownloadGeodata()
     {
-        List<Layer> layers = [];
-        foreach (string url in urls)
+        
+        if (_workspaceService.ActiveWorkspace is null)
         {
-            int i = 1;
-            var layer = await _workspaceService.CreateLayerFromUrl(url);
-            if (layer is not null)
+            WorkspaceResultMsg = "Select a workspace.";
+            WorkspaceResultMsgColor = Colors.Red;
+        }
+
+        foreach (var layer in await GetCurrentWorkspaceGeodatasets())
+        {
+            try
             {
-                await layer.LoadAsync();
-                if (string.IsNullOrWhiteSpace(layer.Name))
-                {
-                    layer.Name = $"layer_{i}";
-                }
-                layers.Add(layer);
-                ++i;
+                MapController.ActiveMap.OperationalLayers.Add(layer);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
             }
         }
-        return layers;
+
     }
 
     public void Reset()
@@ -167,4 +212,13 @@ public partial class WorkspaceViewModel(IWorkspaceService workspaceService, IMap
         WorkspaceResultMsg = string.Empty;
         WorkspaceResultMsgColor = Colors.White;
     }
+}
+
+public sealed class ExtraLayer
+{
+    public string url { get; set; } = string.Empty;
+    public double minScale { get; set; }
+    public double opacity { get; set; }
+    public bool visible { get; set; }
+    public string? title { get; set; }
 }

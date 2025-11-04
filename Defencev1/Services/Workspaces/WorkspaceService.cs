@@ -122,57 +122,51 @@ public partial class WorkspaceService : IWorkspaceService
     /// <returns>A <see cref="Task{TResult}"/> representing the asynchronous operation. The result contains a <see
     /// cref="Result{T}"/> object that contains a list of geodataset raster paths if operation succeeds, or an error message
     /// if it fails.</returns>
-    public async Task<Result<List<string>>> GetGeodatasets()
+    public async IAsyncEnumerable<string> GetGeodatasets()
     {
-        if (ActiveWorkspace is null)
-            return Result<List<string>>.Fail("No workspace selected");
+        ArgumentNullException.ThrowIfNull(ActiveWorkspace, nameof(ActiveWorkspace));
+        ArgumentOutOfRangeException.ThrowIfLessThan(ActiveWorkspace.GeodatasetId, 1, nameof(ActiveWorkspace.GeodatasetId));
 
-        if (ActiveWorkspace.GeodatasetId == 0)
-            return Result<List<string>>.Fail("Workspace does not have any geodatasets");
+   
+        string[] fileNames = ["elevation.tif", "clutterHeight.tif", "clutterClasses.tif"];
+        string url = string.Empty;
 
-        try
+        foreach (string fileName in fileNames)
         {
-            string[] fileNames = ["elevation.tif", "clutterHeight.tif", "clutterClasses.tif"];
-            string url = string.Empty;
-            List<string> files = [];
-
-            foreach (string fileName in fileNames)
+            // Check if we already have the geodatasets saved locally
+            var filePath = Path.Combine(FileSystemUtils.GetOrCreateGeodatasetDirectory(ActiveWorkspace.GeodatasetId), fileName);
+            if (File.Exists(filePath))
             {
-                // Check if we already have the geodatasets saved locally
-                var filePath = Path.Combine(FileSystemUtils.GetOrCreateGeodatasetDirectory(ActiveWorkspace.GeodatasetId), fileName);
-                if (File.Exists(filePath))
-                {
-                    files.Add(filePath);
-                    continue;
-                }
-
-                var token = await SecureStorage.GetAsync("CE_TOKEN");
-                // Download the geodatasets
-                url = $"{_authService.CEURL}/geodataSets/{ActiveWorkspace.GeodatasetId}/tif/{fileName}?token={token}";
-                var response = await _httpClient.GetAsync(url);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    using var stream = await response.Content.ReadAsStreamAsync();
-                    using var fileStream = File.Create(filePath);
-                    await stream.CopyToAsync(fileStream);
-                    files.Add(filePath);
-                }
-                else
-                {
-                    var errorMessage = await response.Content.ReadAsStringAsync();
-                    _logger.LogError($"Error getting quickRf result: {errorMessage}");
-                }
+                yield return filePath;
+                continue;
             }
 
-            return Result<List<string>>.Ok(files);
-        }
-        catch (Exception e)
-        {
-            _logger.LogError(e.Message);
-            return Result<List<string>>.Fail($"Failed to retrieve geodatasets. {e.Message}");
+            var token = await SecureStorage.GetAsync("CE_TOKEN");
+            // Download the geodatasets
+            url = $"{_authService.CEURL}/geodataSets/{ActiveWorkspace.GeodatasetId}/tif/{fileName}?token={token}";
+            var response = await _httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                using (var stream = await response.Content.ReadAsStreamAsync())
+                {
+                    using (var fileStream = File.Create(filePath))
+                    {
+                        await stream.CopyToAsync(fileStream);
+                    }
+                }
+
+                yield return filePath;
+            }
+            else
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                _logger.LogError($"Error getting quickRf result: {errorMessage}");
+                yield return string.Empty;
+            }
         }
     }
+  
 
     /// <summary>
     /// Creates a ArcGIS Layer object, from a given url or a resource object id.
